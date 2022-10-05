@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Phonebook.cpp                                      :+:    :+:            */
+/*   Zombie.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/09/05 15:48:33 by nsterk        ########   odam.nl         */
+/*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
+/*   Updated: 2022/10/03 15:04:46 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Phonebook.hpp>
-#include <iostream>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Phonebook::Phonebook( void ) : i(0) {
+#include <string>
 
-	// std::cout << "Phonebook constructor called" << std::endl;
-	return ;
-}
+class Zombie {
 
-Phonebook::~Phonebook( void ) {
+public:
 
-	// std::cout << "Phonebook destructor called" << std::endl;
-	return ;
-}
+/* Member functions */
+	Zombie(void);
+	Zombie(std::string name);
+	~Zombie(void);
+
+	void announce(void);
+
+private:
+
+	std::string _name;
+
+};
+
+#endif

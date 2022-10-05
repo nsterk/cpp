@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Phonebook.cpp                                      :+:    :+:            */
+/*   Zombie.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/09/05 15:48:33 by nsterk        ########   odam.nl         */
+/*   Created: 2022/10/03 15:05:18 by nsterk        #+#    #+#                 */
+/*   Updated: 2022/10/05 17:31:14 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Phonebook.hpp>
+#include <Zombie.hpp>
 #include <iostream>
 
-Phonebook::Phonebook( void ) : i(0) {
+Zombie::Zombie(void) {
 
-	// std::cout << "Phonebook constructor called" << std::endl;
+	std::cout << "Zombie default constructor called" << std::endl;
 	return ;
 }
 
-Phonebook::~Phonebook( void ) {
+Zombie::~Zombie(void) {
 
-	// std::cout << "Phonebook destructor called" << std::endl;
+	std::cout << "Zombie destructor called for " << _name << std::endl;
 	return ;
+}
+
+Zombie::Zombie(std::string name) : _name(name) {
+	
+	std::cout << "Zombie constructor called for " << _name << std::endl;
+	return ;
+}
+
+void Zombie::announce(void) {
+	
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
