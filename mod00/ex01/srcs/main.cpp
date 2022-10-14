@@ -6,23 +6,16 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:48 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/05 21:39:53 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/10/14 20:50:44 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <Contact.hpp>
 #include <Phonebook.hpp>
 #include <iostream>
 #include <string>
 
-// static bool	is_valid(std::string str)
-// {
-// 	for (size_t i = 0; str[i]; i++)
-// }
-
-
-static std::string	display_rules(void) {
+static std::string	displayRules(void) {
 	std::string	cmd;
 
 	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
@@ -36,16 +29,23 @@ int	main(void)
 	Phonebook		Book;
 	size_t			i;
 
-	cmd = display_rules();
 	i = 0;
-	while (cmd.compare("EXIT") != 0)
+	while (1)
 	{
+		cmd = displayRules();
+		if (cmd.compare("EXIT") == 0)
+			break ;
 		if (cmd.compare("ADD") == 0)
-			Book.Contacts[i] = Book.Contacts[i].new_Contact();
-		std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
-		std::getline (std::cin, cmd);
+		{
+			if (Book.Contacts[i].newContact(&Book.Contacts[i]))
+			{
+				std::cout << "bad input motherfucker" << std::endl;
+				return (0);
+			}
+			i = (i < 7) ? (i + 1) : 0;
+		}
+		else if (cmd.compare("SEARCH") == 0)
+			Book.SearchContact();
 	}
-	Book.display_list();
-	// Book.Contacts[i].display_contact();
 	return (0);
 }
