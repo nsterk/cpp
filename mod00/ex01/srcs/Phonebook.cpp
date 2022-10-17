@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/14 21:18:52 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/10/17 17:01:24 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void	Phonebook::SearchContact(void) {
 
 	std::string	cmd;
 	int			choice;
+	int			i;
 	size_t		idx;
 	
 	std::cout << "Enter the index of the contact you want to display." << std::endl;
-	for (size_t i = 0; i < 8; i++)
+	i = 0;
+	while (i < 8)
 	{
 		if (this->Contacts[i].firstName.empty())
 			break ;
@@ -44,11 +46,14 @@ void	Phonebook::SearchContact(void) {
 		DisplayString(this->Contacts[i].firstName, '|');
 		DisplayString(this->Contacts[i].lastName, '|');
 		DisplayString(this->Contacts[i].nickname, '\n');
+		i++;
 	}
 	std::getline(std::cin, cmd);
 	choice = std::stoi(cmd, &idx);
-	if (choice < 1 || choice > 8 || cmd[idx])
-	std::cout << "Choice: " << choice << std::endl << "cmd[idx]: " << cmd[idx] << std::endl;
+	if (choice < 1 || choice > 8 || choice > i || (cmd[idx] != '\0' && !isspace(cmd[idx])))
+		std::cout << "Invalid index provided" << std::endl;
+	else
+		this->Contacts[i - 1].displayContact();
 }
 
 static void	DisplayString(std::string str, char c) {
