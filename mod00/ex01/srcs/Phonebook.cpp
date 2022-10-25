@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/17 17:01:24 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/10/25 17:34:58 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 
 static void	DisplayString(std::string str, char c);
+static int	GetIndex(void);
 
 Phonebook::Phonebook(void) {
 
@@ -31,11 +32,14 @@ Phonebook::~Phonebook(void) {
 
 void	Phonebook::SearchContact(void) {
 
-	std::string	cmd;
 	int			choice;
 	int			i;
-	size_t		idx;
 	
+	if (this->Contacts[0].firstName.empty())
+	{
+		std::cout << "No contacts saved to phonebook yet." << std::endl;
+		return ;
+	}
 	std::cout << "Enter the index of the contact you want to display." << std::endl;
 	i = 0;
 	while (i < 8)
@@ -48,12 +52,8 @@ void	Phonebook::SearchContact(void) {
 		DisplayString(this->Contacts[i].nickname, '\n');
 		i++;
 	}
-	std::getline(std::cin, cmd);
-	choice = std::stoi(cmd, &idx);
-	if (choice < 1 || choice > 8 || choice > i || (cmd[idx] != '\0' && !isspace(cmd[idx])))
-		std::cout << "Invalid index provided" << std::endl;
-	else
-		this->Contacts[i - 1].displayContact();
+	choice = GetIndex(i);
+	this->Contacts[choice - 1].displayContact();
 }
 
 static void	DisplayString(std::string str, char c) {
@@ -62,4 +62,21 @@ static void	DisplayString(std::string str, char c) {
 		std::cout << str.substr(0, 9) << "." << c;
 	else
 		std::cout << std::setw(10) << str << c;
+}
+
+static int	GetIndex(int i) {
+
+	std::string	cmd;
+	size_t		idx;
+	int			choice;
+
+	std::getline(std::cin, cmd);
+	while (cmd.find_first_of("12345678") == std::string::npos)
+	{
+		std::cout << "Invalid index provided, try again: ";
+		std::getline(std::cin, cmd);
+	}	
+	choice = std::stoi(cmd, &idx);
+	if (choice < 1 || choice > 8 || choice > i || (cmd[idx] != '\0' && !isspace(cmd[idx])))
+		std::cout << "Invalid index provided" << std::endl;
 }
