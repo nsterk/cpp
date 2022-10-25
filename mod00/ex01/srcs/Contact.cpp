@@ -6,16 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/25 17:14:50 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/10/25 21:22:58 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Contact.hpp>
-#include <iostream>
-#include <string>
-
-static bool			Valid(std::string str);
-static std::string	get_field(std::string prompt);	
+#include <Utils.hpp>
+#include <iomanip>
 
 Contact::Contact( void ) {
 
@@ -29,46 +26,34 @@ Contact::~Contact( void ) {
 	return ;
 }
 
+bool	Contact::exists(void) {
+
+	return (this->firstName.empty() ? false : true);
+}
+
 int	Contact::newContact(Contact *c) {
 
-	c->firstName = get_field("Enter first name: ");
-	c->lastName = get_field("Enter last name: ");
-	// std::cout << "Enter first name" << std::endl;
-	// std::getline(std::cin, c->firstName);
-	// std::cout << "Enter last name: " << std::endl;
-	// std::getline(std::cin, c->lastName);
-	c->nickname = get_field("Enter nickname: ");
-	c->phoneNumber = get_field("Enter phone number: ");
-	c->darkestSecret = get_field("Enter darkest secret: ");
+	c->firstName = getField("Enter first name: ");
+	c->lastName = getField("Enter last name: ");
+	c->nickname = getField("Enter nickname: ");
+	c->phoneNumber = getField("Enter phone number: ");
+	c->darkestSecret = getField("Enter darkest secret: ");
 	return (0);
 }
 
 void	Contact::displayContact(void) {
 
-	std::cout << "First name:	" << this->firstName << std::endl;
+	std::cout << "\nFirst name:	" << this->firstName << std::endl;
 	std::cout << "Last name:	" << this->lastName << std::endl;
 	std::cout << "Nickname:	" << this->nickname << std::endl;
 	std::cout << "Phone number:	" << this->phoneNumber << std::endl;
-	std::cout << "Darkest secret:	" << this->darkestSecret << std::endl;
+	std::cout << "Darkest secret:	" << this->darkestSecret << "\n\n";
 }
 
-static bool	Valid(std::string str) {
+void	Contact::previewContact(int i) {
 
-	if (str.empty() == true || (str.find_first_not_of("\t\n\v\f\r ") == std::string::npos))
-		return (false);
-	return (true);
-}
-
-static std::string	get_field(std::string prompt) {
-
-	std::string	str;
-
-	std::cout << prompt; 
-	std::getline(std::cin, str);
-	while (Valid(str) == false)
-	{
-		std::cout << "Field cannot be empty. " << prompt;
-		std::getline(std::cin, str);
-	}
-	return (str);
+	std::cout << std::setw(10) << (i + 1) << "|";
+	displayString(this->firstName, '|');
+	displayString(this->lastName, '|');
+	displayString(this->nickname, '\n');
 }

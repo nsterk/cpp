@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Contact.hpp                                        :+:    :+:            */
+/*   Utils.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/25 20:36:12 by nsterk        ########   odam.nl         */
+/*   Created: 2022/10/25 20:12:14 by nsterk        #+#    #+#                 */
+/*   Updated: 2022/10/25 21:12:54 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef UTILS_HPP
+# define UTILS_HPP
 
 #include <string>
+#include <iostream>
 
-class Contact {
-
-public:
-
-/* Member functions */
-	Contact(void);
-	~Contact(void);
-
-	int		newContact(Contact *c);
-	void	displayContact(void);
-	void	previewContact(int i);
-	bool	exists(void);	
-
-private:
-
-/* Member attributes */
-	std::string	phoneNumber;
-	std::string darkestSecret;
-	std::string	firstName;
-	std::string	lastName;
-	std::string	nickname;
-};
+void		displayString(std::string str, char c);
+int			getIndex(int i);
+std::string	getField(std::string prompt);
+bool		Valid(std::string str);
 
 #endif

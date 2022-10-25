@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:48 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/17 17:48:29 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/10/25 21:25:08 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ static std::string	displayRules(void) {
 
 	std::string	cmd;
 
-	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
+	std::cout << "\nAvailable commands: ADD, SEARCH, EXIT" << std::endl;
 	std::getline(std::cin, cmd);
+	std::cout << std::endl;
 	return cmd;
 }
 
@@ -38,11 +39,7 @@ int	main(void)
 			break ;
 		if (cmd.compare("ADD") == 0)
 		{
-			if (Book.Contacts[i].newContact(&Book.Contacts[i]))
-			{
-				std::cout << "bad input motherfucker" << std::endl;
-				return (0);
-			}
+			Book.Contacts[i].newContact(&Book.Contacts[i]);
 			i = (i < 7) ? (i + 1) : 0;
 		}
 		else if (cmd.compare("SEARCH") == 0)
