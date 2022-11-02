@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/25 21:22:58 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/01 16:26:26 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Contact.hpp>
 #include <Utils.hpp>
+#include <iostream>
 #include <iomanip>
 
 Contact::Contact( void ) {
@@ -28,32 +29,31 @@ Contact::~Contact( void ) {
 
 bool	Contact::exists(void) {
 
-	return (this->firstName.empty() ? false : true);
+	return (_firstName.empty() ? false : true);
 }
 
-int	Contact::newContact(Contact *c) {
+void	Contact::newContact(void) {
 
-	c->firstName = getField("Enter first name: ");
-	c->lastName = getField("Enter last name: ");
-	c->nickname = getField("Enter nickname: ");
-	c->phoneNumber = getField("Enter phone number: ");
-	c->darkestSecret = getField("Enter darkest secret: ");
-	return (0);
+	_firstName = getField("Enter first name: ");
+	_lastName = getField("Enter last name: ");
+	_nickname = getField("Enter nickname: ");
+	_phoneNumber = getField("Enter phone number: ");
+	_darkestSecret = getField("Enter darkest secret: ");
 }
 
 void	Contact::displayContact(void) {
 
-	std::cout << "\nFirst name:	" << this->firstName << std::endl;
-	std::cout << "Last name:	" << this->lastName << std::endl;
-	std::cout << "Nickname:	" << this->nickname << std::endl;
-	std::cout << "Phone number:	" << this->phoneNumber << std::endl;
-	std::cout << "Darkest secret:	" << this->darkestSecret << "\n\n";
+	std::cout << "\nFirst name: " << _firstName << std::endl;
+	std::cout << "Last name: " << _lastName << std::endl;
+	std::cout << "Nickname: " << _nickname << std::endl;
+	std::cout << "Phone number: " << _phoneNumber << std::endl;
+	std::cout << "Darkest secret: " << _darkestSecret << std::endl;
 }
 
 void	Contact::previewContact(int i) {
 
 	std::cout << std::setw(10) << (i + 1) << "|";
-	displayString(this->firstName, '|');
-	displayString(this->lastName, '|');
-	displayString(this->nickname, '\n');
+	displayString(_firstName, '|');
+	displayString(_lastName, '|');
+	displayString(_nickname, '\n');
 }

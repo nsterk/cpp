@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 20:12:14 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/25 21:12:54 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/01 15:11:43 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 # define UTILS_HPP
 
 #include <string>
-#include <iostream>
 
 void		displayString(std::string str, char c);
 int			getIndex(int i);
 std::string	getField(std::string prompt);
-bool		Valid(std::string str);
+bool		valid(std::string str);
 
 #endif

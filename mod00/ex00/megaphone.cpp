@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   megaphone.cpp                                      :+:    :+:            */
+/*   Megaphone.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 16:10:01 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/08/27 16:22:31 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/02 15:38:36 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 	{
 		for (size_t j = 0; j < std::strlen(argv[i]); j++)
 			argv[i][j] = static_cast<char> (std::toupper(argv[i][j]));
+		std::cout << argv[i]; 
 	}
 	std::cout << std::endl;
 	return (0);

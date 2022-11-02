@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 20:07:51 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/25 21:26:52 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/01 16:26:24 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iomanip>
 #include <Utils.hpp>
+#include <iostream>
+#include <iomanip>
 
 void	displayString(std::string str, char c) {
 
@@ -47,7 +48,7 @@ std::string	getField(std::string prompt) {
 
 	std::cout << prompt; 
 	std::getline(std::cin, str);
-	while (Valid(str) == false)
+	while (!valid(str))
 	{
 		std::cout << "Field cannot be empty. " << prompt;
 		std::getline(std::cin, str);
@@ -55,9 +56,8 @@ std::string	getField(std::string prompt) {
 	return (str);
 }
 
-bool	Valid(std::string str) {
+bool	valid(std::string str) {
 
-	if (str.empty() == true || (str.find_first_not_of("\t\n\v\f\r ") == std::string::npos))
-		return (false);
-	return (true);
+	return ((str.empty() || (str.find_first_not_of("\t\n\v\f\r ") == std::string::npos)) ? false : true);
+
 }

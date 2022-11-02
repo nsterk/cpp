@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/08/25 20:07:53 by nsterk        ########   odam.nl          #
+#    Updated: 2022/11/01 16:52:58 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME		=	megaphone
 CC			=	c++
 FLAGS		=	-Wall -Wextra -Werror -std=c++98
 
-SRCS		=	Megaphone.cpp
-OBJS		=	$(SRCS:%.c=%.o)
+SRCS		=	megaphone.cpp
+OBJS		=	$(SRCS:%.cpp=%.o)
 
 all:	$(NAME)
 

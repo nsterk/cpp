@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 17:51:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/10/14 16:45:47 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/01 14:42:25 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ public:
 
 	Phonebook(void);
 	~Phonebook(void);
-	
-	void	SearchContact(void);
-	
+
+	void	searchContact(void);	
+
 };
 
 #endif
