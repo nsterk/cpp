@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 17:51:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/01 14:42:25 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/03 19:22:04 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ public:
 	void	searchContact(void);	
 
 };
+
+
 
 #endif
