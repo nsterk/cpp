@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:48 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/01 15:09:35 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/03 21:05:25 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(void)
 			break ;
 		if (!cmd.compare("ADD"))
 		{
-			Book.Contacts[i].newContact();
+			Book.addContact(i);
 			i = (i < 7) ? (i + 1) : 0;
 		}
 		else if (!cmd.compare("SEARCH"))

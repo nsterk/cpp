@@ -6,14 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/01 16:26:26 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/03 21:37:05 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Contact.hpp>
 #include <Utils.hpp>
 #include <iostream>
-#include <iomanip>
 
 Contact::Contact( void ) {
 
@@ -27,33 +26,62 @@ Contact::~Contact( void ) {
 	return ;
 }
 
+/* Getter functions */
+
+std::string	Contact::getFirstName(void) {
+
+	return (this->_firstName);
+}
+
+std::string	Contact::getLastName(void) {
+	
+	return (_lastName);
+}
+
+std::string	Contact::getNickname(void) {
+	
+	return (_nickname);
+}
+
+std::string	Contact::getPhoneNumber(void) {
+	
+	return (_phoneNumber);
+}
+
+std::string	Contact::getDarkestSecret(void) {
+	
+	return (_darkestSecret);
+}
+
+/* Setter functions */
+
+void	Contact::setFirstName(std::string str) {
+
+	_firstName = str;
+}
+
+void	Contact::setLastName(std::string str) {
+
+	_lastName = str;
+}
+
+void	Contact::setNickname(std::string str) {
+
+	_nickname = str;
+}
+
+void	Contact::setPhoneNumber(std::string str) {
+
+	_phoneNumber = str;
+}
+
+void	Contact::setDarkestSecret(std::string str) {
+
+	_darkestSecret = str;
+}
+
+/* Other functions */
 bool	Contact::exists(void) {
 
 	return (_firstName.empty() ? false : true);
-}
-
-void	Contact::newContact(void) {
-
-	_firstName = getField("Enter first name: ");
-	_lastName = getField("Enter last name: ");
-	_nickname = getField("Enter nickname: ");
-	_phoneNumber = getField("Enter phone number: ");
-	_darkestSecret = getField("Enter darkest secret: ");
-}
-
-void	Contact::displayContact(void) {
-
-	std::cout << "\nFirst name: " << _firstName << std::endl;
-	std::cout << "Last name: " << _lastName << std::endl;
-	std::cout << "Nickname: " << _nickname << std::endl;
-	std::cout << "Phone number: " << _phoneNumber << std::endl;
-	std::cout << "Darkest secret: " << _darkestSecret << std::endl;
-}
-
-void	Contact::previewContact(int i) {
-
-	std::cout << std::setw(10) << (i + 1) << "|";
-	displayString(_firstName, '|');
-	displayString(_lastName, '|');
-	displayString(_nickname, '\n');
 }
