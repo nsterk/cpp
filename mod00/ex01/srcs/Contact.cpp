@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/03 21:37:05 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/07 17:46:06 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Contact::~Contact( void ) {
 
 std::string	Contact::getFirstName(void) {
 
-	return (this->_firstName);
+	return (_firstName);
 }
 
 std::string	Contact::getLastName(void) {

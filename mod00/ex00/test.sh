@@ -8,28 +8,34 @@ megaphone="./megaphone"
 
 # NO ARGUMENT
 echo -e "${GREEN}No arguments:${RESET}"
-echo -e "./megaphone"
+echo -ne "${BLUE}output: ${RESET}" 
 "$megaphone"
 
 # ONE LOWERCASE ARGUMENT
-echo -e "${GREEN}One lowercase argument:${RESET}"
-echo -e "./megaphone" "\"this is all lowercase\""
+echo -e "\n${GREEN}One lowercase argument:${RESET}"
+echo -e "${BLUE}input: ${RESET}" "\"this is all lowercase\""
+echo -ne "${BLUE}output: ${RESET}" 
 "$megaphone" "this is all lowercase"
 
 # MULTIPLE LOWERCASE ARGS
-echo -e "${GREEN}Multiple lowercase arguments:${RESET}"
-echo -e "./megaphone" "\"this is all lowercase!\"" "\" so is this!\" \" 1 moar!\""
+echo -e "\n${GREEN}Multiple lowercase arguments:${RESET}"
+echo -e "${BLUE}input: ${RESET}" "\"this is all lowercase!\"" "\" so is this!\" \" 1 moar!\""
+echo -ne "${BLUE}output: ${RESET}" 
 "$megaphone" "this is all lowercase!" " so is this!" " 1 moar!"
-echo -e "./megaphone \"hello is this thing on? \" \" well? \" \" is it?!_ \""
+echo "----------------------------------------------------------------"
+echo -e "${BLUE}input: ${RESET}" "\"hello is this thing on? \" \" well? \" \" is it?!_ \""
+echo -ne "${BLUE}output: ${RESET}" 
 "$megaphone" "hello is this thing on? " " well? " " is it?!_ "
 
 # UPPERCASE ARGS
-echo -e "${GREEN}Multiple uppercase arguments:${RESET}"
-echo "./megaphone \"*IS UPPERCASE* \" \"*THIS TOO* \" \"*ALREADY UPPER*\""
-"$megaphone" "*IS UPPERCASE* " "*THIS TOO* " "*ALREADY UPPER*"
+echo -e "\n${GREEN}Multiple uppercase arguments:${RESET}"
+echo -e "${BLUE}input: ${RESET} \"IS U&^PPERCASE \" \"THIS TOO \" \"ALREADY UPPER\""
+echo -ne "${BLUE}output: ${RESET}" 
+"$megaphone" "IS U&^PPERCASE " "THIS TOO " "ALREADY UPPER"
 
 #MIXED UPPER & LOWER ARGS
-echo -e "${GREEN}Mixed upper and lowercase arguments:${RESET}"
-echo "./megaphone \"*iS M1xEeed* \" \"*this isn't* \" \"*BuT ThiS iS*\""
-"$megaphone" "*iS M1xEeed* " "*this isn't* " "*BuT ThiS iS*"
+echo -e "\n${GREEN}Mixed upper and lowercase arguments:${RESET}"
+echo -e "${BLUE}input: ${RESET}" "\"iS M1xEeed  \" \"this isn't  \" \"BuT ThiS iS  \""
+echo -ne "${BLUE}output: ${RESET}" 
+"$megaphone" "iS M1xEeed  " "this isn't  " "BuT ThiS iS  "
 
