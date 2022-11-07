@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/10/03 15:06:06 by nsterk        ########   odam.nl          #
+#    Updated: 2022/11/07 19:01:08 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	Zombie
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
-SRCS	=	srcs/main.cpp srcs/Zombie.cpp
+SRCS	=	srcs/main.cpp srcs/Zombie.cpp srcs/newZombie.cpp srcs/randomChump.cpp
 OBJS	=	$(SRCS:%.cpp=%.o)
 
 all:	$(NAME)
