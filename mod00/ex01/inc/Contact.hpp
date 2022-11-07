@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/03 21:12:23 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/07 18:27:33 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ public:
 	Contact(void);
 	~Contact(void);
 
-	// void	newContact(void);
-	// void	displayContact(void);
-	// void	previewContact(int i);
 	bool	exists(void);
 	
 	/* Getter functions */
@@ -33,7 +30,7 @@ public:
 	std::string	getPhoneNumber(void);
 	std::string	getDarkestSecret(void);
 	
-	/* Setter function */
+	/* Setter functions */
 	void	setFirstName(std::string str);
 	void	setLastName(std::string str);
 	void	setNickname(std::string str);
@@ -47,24 +44,5 @@ private:
 	std::string	_phoneNumber;
 	std::string _darkestSecret;
 };
-
-// class Contact {
-
-// public:
-// 	Contact(void);
-// 	~Contact(void);
-
-// 	void	newContact(void);
-// 	void	displayContact(void);
-// 	void	previewContact(int i);
-// 	bool	exists(void);	
-
-// private:
-// 	std::string	_phoneNumber;
-// 	std::string _darkestSecret;
-// 	std::string	_firstName;
-// 	std::string	_lastName;
-// 	std::string	_nickname;
-// };
 
 #endif
