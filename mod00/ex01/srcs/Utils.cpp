@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 20:07:51 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/01 16:26:24 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/07 18:21:20 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		getIndex(int i) {
 		if (choice < 1 || choice > i || (cmd[idx] != '\0' && !isspace(cmd[idx])))
 			std::cout << "Invalid index. Try again: ";
 		else
-			return (choice);
+			return (choice - 1);
 	}
 }
 
