@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 20:07:51 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/07 18:21:20 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/19 16:42:16 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int		getIndex(int i) {
 	{
 		choice = 0;
 		std::getline(std::cin, cmd);
-		if (cmd.find_first_of("12345678") != std::string::npos)
+		if (cmd.find_first_of("0123456789") != std::string::npos \
+			&& cmd.find_first_not_of("0123456789") == std::string::npos)
 			choice = std::stoi(cmd, &idx);
 		if (choice < 1 || choice > i || (cmd[idx] != '\0' && !isspace(cmd[idx])))
 			std::cout << "Invalid index. Try again: ";
