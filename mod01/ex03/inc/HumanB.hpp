@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/19 22:29:57 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/20 17:11:26 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ public:
 	~HumanB(void);
 
 	void	attack(void);
-	void	setWeapon(Weapon weapon);
+	void	setWeapon(Weapon &weapon);
 
 private:
 
-	Weapon		weapon;
 	std::string _name;
+	Weapon		*_weapon;
 
 };
 

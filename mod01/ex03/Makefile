@@ -6,21 +6,21 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/11/19 19:58:17 by nsterk        ########   odam.nl          #
+#    Updated: 2022/11/20 16:27:23 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Hi
+NAME	=	Violence
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
-SRCS	=	main.cpp
+SRCS	=	srcs/main.cpp srcs/Weapon.cpp srcs/HumanA.cpp srcs/HumanB.cpp
 OBJS	=	$(SRCS:%.cpp=%.o)
 
 all:	$(NAME)
 
 $(NAME): $(SRCS)
-	$(CC) $(SRCS) $(FLAGS) -Iinc -o Hi
+	$(CC) $(SRCS) $(FLAGS) -Iinc -o Violence
 
 clean:
 	@ rm -rf $(OBJS)

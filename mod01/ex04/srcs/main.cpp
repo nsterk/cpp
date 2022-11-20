@@ -5,35 +5,36 @@
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/20 15:22:41 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/20 17:36:52 by nsterk        ########   odam.nl         */
+/*   Created: 2022/11/20 20:05:11 by nsterk        #+#    #+#                 */
+/*   Updated: 2022/11/20 22:31:31 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Weapon.hpp>
-#include <HumanA.hpp>
-#include <HumanB.hpp>
 #include <iostream>
+#include <fstream>
+#include <string>
 
-int	main(void)
+
+
+int	main(int argc, char **argv)
 {
-	{
-		Weapon danger = Weapon("zwaarden op haar kamer");
-		HumanA human("Regina", danger);
-		human.attack();
+	std::ifstream	ifs;
+	std::ofstream	ofs;
+	std::string		str;
+	std::string		original(argv[1]);
+	std::string		newFile;
 
-		danger.setType("zwaarden in haar achtertuin");
-		human.attack();
-	}
-	{
-		Weapon highvoltage = Weapon("electrical current");
-	
-		HumanB humanB("Sinterklaas");
-		humanB.attack();
-		humanB.setWeapon(highvoltage);
-		humanB.attack();
-		highvoltage.setType("pietermannen");
-		humanB.attack();
-	}
+	if (argc != 4)
+		std::cout << "Incorrect amount of arguments provided" << std::endl;
+	//create the new filename
+	newFile = original.substr(0, std::string::npos);
+	newFile.append(".replace");
+	//open io streams
+	ifs.open(argv[1], std::ifstream::in);
+	ofs.open(newFile, std::ifstream::out);
+	while (getline(ifs, str))
+		ofs << str << '\n';
+	ifs.close();
+	ofs.close();
 	return (0);
 }

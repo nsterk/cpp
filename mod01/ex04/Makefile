@@ -6,21 +6,21 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/11/20 20:04:30 by nsterk        ########   odam.nl          #
+#    Updated: 2022/11/20 20:05:00 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Zombie
+NAME	=	LoserSed
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
-SRCS	=	srcs/main.cpp srcs/Zombie.cpp srcs/newZombie.cpp srcs/randomChump.cpp
+SRCS	=	srcs/main.cpp
 OBJS	=	$(SRCS:%.cpp=%.o)
 
 all:	$(NAME)
 
 $(NAME): $(SRCS)
-	$(CC) $(SRCS) $(FLAGS) -Iinc -o Zombie
+	$(CC) $(SRCS) $(FLAGS) -Iinc -o LoserSed
 
 clean:
 	@ rm -rf $(OBJS)
