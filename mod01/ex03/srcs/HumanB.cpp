@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 15:31:17 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/20 17:17:35 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/21 17:59:59 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	HumanB::attack(void) {
 
 void	HumanB::setWeapon(Weapon &weapon) {
 
-	std::cout << "weapon address in setweapon scope: " << &weapon << std::endl;
+	// std::cout << "weapon address in setweapon scope: " << &weapon << std::endl;
 	_weapon = &weapon;
 }

@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 17:51:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/07 18:27:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/21 17:58:48 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 #include <Contact.hpp>
+#define SIZE 8
 
 class Phonebook {
 
@@ -27,7 +28,7 @@ public:
 	void	displayContact(size_t i);
 
 private:
-	Contact	contacts[8];
+	Contact	contacts[SIZE];
 };
 
 #endif

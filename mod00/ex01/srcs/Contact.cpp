@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/07 17:46:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/21 17:59:27 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ std::string	Contact::getDarkestSecret(void) {
 
 /* Setter functions */
 
-void	Contact::setFirstName(std::string str) {
+void	Contact::setFirstName(const std::string &str) {
 
 	_firstName = str;
 }

@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/07 18:19:48 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/21 17:58:34 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	Phonebook::searchContact(void) {
 		return ;
 	}
 	i = 0;
-	while (i < 8)
+	while (i < SIZE)
 	{
 		if (!this->contacts[i].exists())
 			break ;

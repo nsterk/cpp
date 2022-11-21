@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 20:07:51 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/19 16:42:16 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/21 17:57:18 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	displayString(std::string str, char c) {
 int		getIndex(int i) {
 
 	std::string	cmd;
-	size_t		idx;
 	int			choice;
 
 	std::cout << "\nEnter the index of the contact you want to display: ";
@@ -35,8 +34,8 @@ int		getIndex(int i) {
 		std::getline(std::cin, cmd);
 		if (cmd.find_first_of("0123456789") != std::string::npos \
 			&& cmd.find_first_not_of("0123456789") == std::string::npos)
-			choice = std::stoi(cmd, &idx);
-		if (choice < 1 || choice > i || (cmd[idx] != '\0' && !isspace(cmd[idx])))
+			choice = atoi(cmd.c_str());
+		if (choice < 1 || choice > i)
 			std::cout << "Invalid index. Try again: ";
 		else
 			return (choice - 1);
