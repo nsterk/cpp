@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/21 22:22:33 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/27 18:11:35 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ public:
 
 /* Member functions */
 	Sed(void);
+	Sed(char *name, char *s1, char *s2);
 	~Sed(void);
+
+	void				setFilename(const std::string &name);
+	const std::string	&getFilename(void);
 
 private:
 
