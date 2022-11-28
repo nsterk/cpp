@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/27 16:48:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/21 17:59:27 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/28 16:00:07 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,22 +60,22 @@ void	Contact::setFirstName(const std::string &str) {
 	_firstName = str;
 }
 
-void	Contact::setLastName(std::string str) {
+void	Contact::setLastName(const std::string &str) {
 
 	_lastName = str;
 }
 
-void	Contact::setNickname(std::string str) {
+void	Contact::setNickname(const std::string &str) {
 
 	_nickname = str;
 }
 
-void	Contact::setPhoneNumber(std::string str) {
+void	Contact::setPhoneNumber(const std::string &str) {
 
 	_phoneNumber = str;
 }
 
-void	Contact::setDarkestSecret(std::string str) {
+void	Contact::setDarkestSecret(const std::string &str) {
 
 	_darkestSecret = str;
 }
