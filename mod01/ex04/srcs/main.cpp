@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 20:05:11 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/30 16:10:02 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/30 20:35:22 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,20 @@
 
 int	main(int argc, char **argv)
 {
-	std::string		original(argv[1]);
-	// std::ifstream	ifs;
-	// std::ofstream	ofs;
+	Sed	replacer;
 	// std::string		str;
 	// size_t			idx;
 
 	if (argc != 4)
 		std::cout << "Incorrect amount of arguments provided" << std::endl;
-	Sed replacer(argv[1], argv[2], argv[3]);
-	std::cout << replacer.getFilename() << std::endl;
+	replacer.streams.openStreams(argv[1]);
+	replacer.streams.closeStreams();
 	//open io streams
 	/*
-	ifs.open(argv[1], std::ifstream::in);
-	ofs.open(original.append(".replace"), std::ifstream::out);
 	while (getline(ifs, str))
 	{
 		idx = str.find(std::string arg(argv[2]));
 	}
-	// ofs << str << '\n';
-	ifs.close();
-	ofs.close();
 	*/
 	return (0);
 }

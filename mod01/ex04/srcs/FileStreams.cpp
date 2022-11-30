@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/28 22:32:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/30 16:07:57 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/30 20:35:52 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,32 @@ FileStreams::~FileStreams(void) {
 	std::cout << "FileStreams destructor called" << std::endl;
 }
 
-void	FileStreams::openIFS(char *str) {
+void	FileStreams::openStreams(const char *str) {
 
-	_ifs.open(str, std::ifstream::in);
+	std::string	original(str);
+	std::string outfile = original + ".replace";
+
+	_ifs.open(original.c_str(), std::ifstream::in);
+	_ofs.open(outfile.c_str(), std::ifstream::out);
+	if (_ifs.is_open() == false || _ofs.is_open() == false)
+	{
+		std::cout << "Error opening files" << std::endl;
+		exit(1);
+	}
+}
+
+void	FileStreams::closeStreams(void) {
+	
+	_ifs.close();
+	_ofs.close();
+}
+
+const std::ifstream&	FileStreams::getIFS(void) {
+
+	return (_ifs);
+}
+
+const std::ofstream&	FileStreams::getOFS(void) {
+
+	return (_ofs);
 }
