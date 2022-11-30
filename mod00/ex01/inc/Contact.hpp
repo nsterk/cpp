@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/07 18:27:33 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/28 16:00:24 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ public:
 	std::string	getDarkestSecret(void);
 	
 	/* Setter functions */
-	void	setFirstName(std::string str);
-	void	setLastName(std::string str);
-	void	setNickname(std::string str);
-	void	setPhoneNumber(std::string str);
-	void	setDarkestSecret(std::string str);
+	void	setFirstName(const std::string &str);
+	void	setLastName(const std::string &str);
+	void	setNickname(const std::string &str);
+	void	setPhoneNumber(const std::string &str);
+	void	setDarkestSecret(const std::string &str);
 
 private:
 	std::string	_firstName;

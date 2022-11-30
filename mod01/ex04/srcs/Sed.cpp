@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/21 22:14:36 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/28 21:34:26 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/30 16:09:58 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Sed.hpp>
 #include <iostream>
+#include <fstream>
 
 Sed::Sed(void) {
 
@@ -35,7 +36,7 @@ Sed::~Sed(void) {
 	std::cout << "Default Sed destructor called" << std::endl;
 }
 
-void			Sed::setFilename(const std::string &name) {
+void	Sed::setFilename(const std::string &name) {
 
 	_filename = name;
 }
@@ -43,4 +44,10 @@ void			Sed::setFilename(const std::string &name) {
 const std::string	&Sed::getFilename(void) {
 
 	return (_filename);
+}
+
+void	Sed::setInputFileStream(char *str) {
+
+	std::string	original(str);
+	
 }
