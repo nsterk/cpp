@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 20:05:11 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/27 18:07:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/11/28 21:38:52 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,8 @@
 // /**
 //  * 1. check if s1 is in line
 //  * 		YES: erase s1 & insert s2, loop again
-//  * 
-//  * 
 //  */
 	
-// }
-
-// static void	initReplacer(char **argv) {
-
-// 	std::string		original
 // }
 
 int	main(int argc, char **argv)
