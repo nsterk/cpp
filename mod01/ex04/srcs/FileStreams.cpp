@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/28 22:32:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/30 20:35:52 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/12 20:24:27 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	FileStreams::closeStreams(void) {
 	_ofs.close();
 }
 
-const std::ifstream&	FileStreams::getIFS(void) {
+std::ifstream	FileStreams::getIFS(void) {
 
 	return (_ifs);
 }
 
-const std::ofstream&	FileStreams::getOFS(void) {
+std::ofstream	FileStreams::getOFS(void) {
 
 	return (_ofs);
 }

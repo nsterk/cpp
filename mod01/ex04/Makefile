@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/11/30 20:17:42 by nsterk        ########   odam.nl          #
+#    Updated: 2022/12/12 21:46:33 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME	=	LoserSed
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
-SRCS	=	srcs/main.cpp srcs/Sed.cpp srcs/FileStreams.cpp
-OBJS	=	$(SRCS:%.cpp=%.o)
+SRCS	=	srcs/main.cpp srcs/Sed.cpp
 
 all:	$(NAME)
 

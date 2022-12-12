@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 20:05:11 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/30 20:35:22 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/12 21:46:06 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,33 @@
 #include <fstream>
 #include <string>
 #include <Sed.hpp>
+#include <FileStreams.hpp>
 
-// static void	do_stuff(std::ofstream &ofs, std::ifstream &ifs)
-// {
-// 	size_t		idx;
-// 	std::string	str;
-// /**
-//  * 1. check if s1 is in line
-//  * 		YES: erase s1 & insert s2, loop again
-//  */
-	
-// }
 
 int	main(int argc, char **argv)
 {
-	Sed	replacer;
-	// std::string		str;
-	// size_t			idx;
+	std::string		str;
+	std::ifstream	ifs;
+	std::ofstream	ofs;
 
 	if (argc != 4)
 		std::cout << "Incorrect amount of arguments provided" << std::endl;
-	replacer.streams.openStreams(argv[1]);
-	replacer.streams.closeStreams();
-	//open io streams
-	/*
+	std::string	original(argv[1]);
+	std::string outfile = original + ".replace";
+	ifs.open(original.c_str(), std::ifstream::in);
+	ofs.open(outfile.c_str(), std::ifstream::out);
+	if (ifs.is_open() == false || ofs.is_open() == false)
+	{
+		std::cout << "Error opening files" << std::endl;
+		exit(1);
+	}
+	Sed replacer(argv[2], argv[3]);
 	while (getline(ifs, str))
 	{
-		idx = str.find(std::string arg(argv[2]));
+		replacer.Replacer(str);
+		ofs << str;
+		if (!ifs.eof())
+			ofs << '\n';
 	}
-	*/
 	return (0);
 }
