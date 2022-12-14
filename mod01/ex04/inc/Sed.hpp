@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/12 21:37:51 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/13 17:56:53 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SED_HPP
 
 #include <string>
-#include <fstream>
-#include <FileStreams.hpp>
 
 class Sed {
 
@@ -28,13 +26,11 @@ public:
 
 private:
 
-	std::ifstream	_ifs;
-	std::ofstream	_ofs;
 	std::string 	_old;
 	std::string 	_new;
 	size_t			_lenOld;
 	size_t			_lenNew;
-	
+
 };
 
 #endif

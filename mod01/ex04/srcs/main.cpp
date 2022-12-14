@@ -6,16 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 20:05:11 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/12 21:46:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/13 18:02:17 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <Sed.hpp>
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <Sed.hpp>
-#include <FileStreams.hpp>
-
 
 int	main(int argc, char **argv)
 {

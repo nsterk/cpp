@@ -6,13 +6,12 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/21 22:14:36 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/12 21:48:35 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/13 18:04:33 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Sed.hpp>
 #include <iostream>
-#include <fstream>
 
 Sed::Sed(void) {
 
@@ -30,20 +29,16 @@ Sed::Sed(char *s1, char *s2) {
 	_new = std::string(s2);
 	_lenOld = _old.length();
 	_lenNew = _new.length();
+	std::cout << "Sed constructor called to replace '" << _old << "' with '" \
+		<< _new << '\'' << std::endl;
 }
 
-// void	Sed::openStreams(const char *str) {
-	
-// }
-
-/**
- * @brief als s1 zelfde als s2 just duplicate it
- * 
- * @param line 
- */
 void	Sed::Replacer(std::string &line) {
 
 	size_t	i = line.find(_old);
+
+	if (!_old.compare(_new))
+		return ;
 	while (i != line.npos)
 	{
 		line.erase(i, _lenOld);
