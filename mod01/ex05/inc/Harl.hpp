@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/14 18:17:13 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/16 18:43:36 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 	~Harl(void);
 
 	void	complain(std::string level);
+	typedef	void	(*t_complaint)(void);
 
 private:
 
@@ -44,6 +45,5 @@ typedef enum e_level {
 	ERROR
 }				t_level;
 
-typedef	void	(*t_complaint)(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/21 22:14:36 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/14 18:11:20 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/16 20:51:35 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ void	Harl::error(void) {
 
 void	Harl::complain(std::string level) {
 
-	static const t_complaint complaint[] = {
+	static const void Harl::*FunctionPtr[] = {
 		['D'] = &Harl::debug,
 		['I'] = &Harl::info
 	};
 }
+
+Harl::*ptrToFunction(void)
