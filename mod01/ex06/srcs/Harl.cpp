@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/21 22:14:36 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/22 22:00:01 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/22 21:59:44 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,16 @@ void	Harl::complain(std::string level) {
 
 	for (int i = 0; i < 4; i++) {
 		if (level == levels[i]) {
-			(this->*complaint[i])();
+			switch(i) {
+			case 0:
+				(this->*complaint[0])();
+			case 1:
+				(this->*complaint[1])();
+			case 2:
+				(this->*complaint[2])();
+			case 3:
+				(this->*complaint[3])();
+			}
 			return ;
 		}
 	}
