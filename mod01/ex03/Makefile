@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/11/20 16:27:23 by nsterk        ########   odam.nl          #
+#    Updated: 2022/12/23 16:53:56 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS	=	$(SRCS:%.cpp=%.o)
 all:	$(NAME)
 
 $(NAME): $(SRCS)
-	$(CC) $(SRCS) $(FLAGS) -Iinc -o Violence
+	$(CC) $(SRCS) $(FLAGS) -Iinc -o $(NAME)
 
 clean:
 	@ rm -rf $(OBJS)

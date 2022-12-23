@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/19 21:59:59 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 17:55:01 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Zombie {
 
 public:
 
-/* Member functions */
 	Zombie(void);
 	Zombie(std::string name);
 	~Zombie(void);
@@ -31,5 +30,7 @@ private:
 	std::string _name;
 
 };
+
+Zombie *zombieHorde (int N, std::string name);
 
 #endif

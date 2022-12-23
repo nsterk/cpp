@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 15:31:17 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/20 16:56:23 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 14:04:18 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ HumanA::~HumanA(void) {
 }
 
 HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon){
-
+ 
 	// std::cout << "HumanA constructor called for " << _name << std::endl;
 }
 
