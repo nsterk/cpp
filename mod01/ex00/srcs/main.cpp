@@ -6,20 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:08:45 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/23 15:21:32 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 18:08:15 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Zombie.hpp>
+#include <colours.hpp>
 #include <iostream>
-
-#define CYAN "\033[36m"
-#define MAGENTA "\033[35m"
-#define GREEN "\033[32m"
-#define RESET "\033[0m"
-
-Zombie *newZombie (std::string name);
-void	randomChump(std::string name);
 
 int	main(void)
 {

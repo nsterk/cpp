@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/07 18:58:26 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 18:06:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ private:
 	std::string _name;
 
 };
+
+Zombie *newZombie (std::string name);
+void	randomChump(std::string name);
 
 #endif

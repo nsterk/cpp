@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 20:19:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/23 17:55:01 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 22:17:56 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ public:
 	Zombie(std::string name);
 	~Zombie(void);
 
-	void announce(void);
+	void	announce(void);
+	void	setName(std::string name);
 
 private:
 
@@ -31,6 +32,6 @@ private:
 
 };
 
-Zombie *zombieHorde (int N, std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif

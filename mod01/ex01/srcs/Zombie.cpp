@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:05:18 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/19 19:19:42 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 22:20:10 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ Zombie::Zombie(std::string name) : _name(name) {
 	return ;
 }
 
-void Zombie::announce(void) {
+void	Zombie::announce(void) {
 	
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string name) {
+
+	this->_name = name;
 }

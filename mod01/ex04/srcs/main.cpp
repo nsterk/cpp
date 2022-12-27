@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 20:05:11 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/14 15:14:22 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/26 16:10:01 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int	main(int argc, char **argv)
 	std::ofstream	ofs;
 
 	if (argc != 4)
+	{
 		std::cout << "Incorrect amount of arguments provided" << std::endl;
+		return (0);
+	}
 	open_ifs(argv[1], ifs, ofs);
 	Sed replacer(argv[2], argv[3]);
 	while (getline(ifs, str))

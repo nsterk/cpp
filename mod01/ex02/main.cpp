@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/19 19:34:27 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/11/19 21:24:03 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 22:37:19 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	std::cout << "Memory address of stringPTR: " << &stringPTR << std::endl;
 	std::cout << "Memory address of stringREF: " << &stringREF << std::endl;
 
-	std::cout << "Value of str: " << str << std::endl;
+	std::cout << std::endl << "Value of str: " << str << std::endl;
 	std::cout << "Value that stringPTR points to: " << stringPTR << std::endl;
 	std::cout << "Value that stringREF points to: " << stringREF << std::endl;
 	return (0);

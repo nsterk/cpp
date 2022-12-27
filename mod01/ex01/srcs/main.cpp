@@ -6,24 +6,23 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:08:45 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/23 17:54:37 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/23 18:39:27 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Zombie.hpp>
-
-#define CYAN "\033[36m"
-#define MAGENTA "\033[35m"
-#define GREEN "\033[32m"
-#define RESET "\033[0m"
+#include <colours.hpp>
+#include <iostream>
 
 int	main(void)
 {
-	Zombie Momo = Zombie("Momo");
-	Zombie *horde;
+	std::cout << GREEN << "Instantiating and announcing a singular Momo" << RESET << std::endl;
 
+	Zombie Momo = Zombie("Momo");
 	Momo.announce();
-	horde = zombieHorde(3, "Momo the seconds");
+
+	std::cout << BLUE << "Allocating a horde of Momos" << RESET << std::endl;
+	Zombie *horde = zombieHorde(3, "Momo the seconds");
 	for (int i = 0; i < 3; i++)
 		horde[i].announce();
 	delete[] horde;
