@@ -6,26 +6,28 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/14 16:53:33 by nsterk        #+#    #+#                 */
-/*   Updated: 2022/12/22 21:39:02 by nsterk        ########   odam.nl         */
+/*   Updated: 2022/12/27 16:29:20 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Harl.hpp>
 #include <iostream>
+#define GREEN "\033[0;32m"
+#define RESET "\033[0m"
 
 int	main(void)
 {
 	Harl	Karen;
 
-	std::cout << "\033[0;35mKaren.complain(\"DEBUG\")\033[0m" << std::endl;
+	std::cout << GREEN << "Karen.complain(\"DEBUG\")" << RESET << std::endl;
 	Karen.complain("DEBUG");
-	std::cout << "\033[0;35mKaren.complain(\"INFO\")\033[0m" << std::endl;
+	std::cout << GREEN << "Karen.complain(\"INFO\")" << RESET << std::endl;
 	Karen.complain("INFO");
-	std::cout << "\033[0;35mKaren.complain(\"WARNING\")\033[0m" << std::endl;
+	std::cout << GREEN << "Karen.complain(\"WARNING\")" << RESET << std::endl;
 	Karen.complain("WARNING");
-	std::cout << "\033[0;35mKaren.complain(\"ERROR\")\033[0m" << std::endl;
+	std::cout << GREEN << "Karen.complain(\"ERROR\")" << RESET << std::endl;
 	Karen.complain("ERROR");
-	std::cout << "\033[0;35mKaren.complain(\"DEBOO\")\033[0m" << std::endl;
+	std::cout << GREEN << "Karen.complain(\"DEBOO\")" << RESET << std::endl;
 	Karen.complain("DEBOO");
 	return (0);
 }

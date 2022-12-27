@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/12/23 18:18:05 by nsterk        ########   odam.nl          #
+#    Updated: 2022/12/27 16:30:03 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS	=	$(SRCS:%.cpp=%.o)
 all:	$(NAME)
 
 $(NAME): $(SRCS)
-	$(CC) $(SRCS) $(FLAGS) -Iinc -o Zombie
+	$(CC) $(SRCS) $(FLAGS) -Iinc -o $(NAME)
 
 clean:
 	@ rm -rf $(OBJS)

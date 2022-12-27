@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/12/13 17:55:21 by nsterk        ########   odam.nl          #
+#    Updated: 2022/12/27 16:30:15 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS	=	srcs/main.cpp srcs/Sed.cpp
 all:	$(NAME)
 
 $(NAME): $(SRCS)
-	$(CC) $(SRCS) $(FLAGS) -Iinc -o LoserSed
+	$(CC) $(SRCS) $(FLAGS) -Iinc -o $(NAME)
 
 clean:
 	@ rm -rf $(OBJS)
