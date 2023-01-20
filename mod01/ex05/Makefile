@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2022/12/27 16:26:23 by nsterk        ########   odam.nl          #
+#    Updated: 2023/01/12 19:12:39 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRCS	=	srcs/main.cpp srcs/Harl.cpp
+OBJS	=	$(SRCS:%.cpp=%.o)
 
 all:	$(NAME)
 

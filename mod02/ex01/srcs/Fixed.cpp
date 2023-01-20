@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/01/16 22:16:10 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/01/16 23:01:01 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	Fixed::setRawBits(int const raw) {
 	// std::cout << "setRawBits member function called" << std::endl;
 	_value = raw;	
 }
+
+/*	Operator overloads */
 
 Fixed&	Fixed::operator=(Fixed const &rhs) {
 
