@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:57:58 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/01/20 20:36:46 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/01/23 17:14:47 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,8 @@
 
 int	main(void) {
 
-	/*	Instantiating instance A of Fixed class with default constructor and
-		then using setRawBits member function to set the value to 10. */
-	
-	Fixed A;
-	A.setRawBits(10);
-	
-	/*	Instantiating B with copy constructor to be a copy of A.
-		Instantiating C with default constructor and then using copy assignment
-		overload to assign the value of A to C. */
-	Fixed B(A);
-	Fixed C;
+	Fixed const A(69.69f);
 
-	std::cout << "value of B: " << B.getRawBits() << std::endl;
-	A.setRawBits(120);
-	C = A;
-	std::cout << C.getRawBits() << std::endl;
+	std::cout << "value of A: " << A.toFloat() << std::endl;
 	return (0);	
 }
