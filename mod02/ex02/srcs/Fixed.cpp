@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/02/11 20:59:45 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/02/11 21:00:02 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,6 @@ std::ostream&	operator<<(std::ostream& out, Fixed const &f) {
 	out << f.toFloat();
 	return (out);
 }
+
+/*	Arithmetic operators */
+

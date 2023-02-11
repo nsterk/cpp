@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   colours.hpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/12/29 20:57:58 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/02/11 18:36:27 by nsterk        ########   odam.nl         */
+/*   Created: 2023/01/12 19:23:48 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/01/12 19:24:10 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
+#ifndef COLOURS_HPP
+# define COLOURS_HPP
 
-int	main(void) {
+#define CYAN	"\033[36m"
+#define MAGENTA	"\033[35m"
+#define GREEN	"\033[32m"
+#define RED		"\033[38;5;124m"
+#define YELLOW	"\033[38;5;184m"
+#define BLUE	"\033[38;5;33m"
+#define RESET	"\033[0m"
 
-	Fixed const A(69.69f);
-	
-
-	std::cout << "value of A w/ toFloat: " << A.toFloat() << std::endl;
-	std::cout << "rawdogging A into insertion stream like a boss bitch: " << A << std::endl;
-	return (0);	
-}
+#endif
