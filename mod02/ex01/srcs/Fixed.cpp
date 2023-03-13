@@ -6,11 +6,12 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/01/23 17:17:14 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/01/24 14:27:09 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 #include <iostream>
 
 /* Constructors & destructor */
@@ -21,15 +22,14 @@ Fixed::Fixed(void) : _value(0) {
 }
 
 Fixed::Fixed(const int number) {
-	std::cout << number << std::endl;
-	std::cout << "number: " << number << std::endl;
+	_value = number << 8;
+	std::cout << "Fixed constructor called for value: " << number << std::endl;
 }
 
 Fixed::Fixed(const float number) {
 
-	_value = number / 256;
-	std::cout << "number: " << number << std::endl;
-	std::cout << "value: " << _value << std::endl;
+	_value = roundf(number * 256.0);
+	std::cout << "Fixed constructor called for value: " << number << std::endl;
 }
 
 Fixed::Fixed(Fixed &original) : _value(original._value) {
@@ -57,11 +57,11 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat(void) const {
-	return (_value * 256);
+	return (_value / 256.0);
 }
 
 int		Fixed::toInt(void) const {
-	return (_value);
+	return (_value >> 8);
 }
 
 /*	Operator overloads */
