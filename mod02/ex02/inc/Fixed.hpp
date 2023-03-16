@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/02/11 20:50:43 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/02/11 21:03:07 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ class Fixed {
 		int		toInt(void) const;
 
 		/* Operator overloads */
-		Fixed&			operator=(Fixed const &rhs);
+		Fixed&		operator=(Fixed const &rhs);
+		//Fixed&		operator+()
 
 	private:
 
