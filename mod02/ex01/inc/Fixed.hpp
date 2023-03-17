@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/02/11 20:50:43 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/16 20:30:31 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Fixed {
 
 		int					_value;
 		static const int	_fractionalBits = 8;
+		float				_divider;
 };
 
 std::ostream&	operator<<(std::ostream& out, Fixed const &f);

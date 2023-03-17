@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/02/11 21:03:07 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/17 21:53:21 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Fixed {
 		Fixed(void);
 		Fixed(const int number);
 		Fixed(const float number);
-		Fixed(Fixed &original);
+		Fixed(Fixed const &original);
 		~Fixed(void);
 	
 		/* Member functions */
@@ -33,7 +33,7 @@ class Fixed {
 
 		/* Operator overloads */
 		Fixed&		operator=(Fixed const &rhs);
-		//Fixed&		operator+()
+		Fixed		operator-(Fixed const &rhs) const;
 
 	private:
 

@@ -6,10 +6,9 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/16 16:01:24 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/17 16:07:53 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Fixed.hpp"
 #include <cmath>
@@ -18,7 +17,7 @@
 /* Constructors & destructor */
 
 Fixed::Fixed(void) : _value(0) {
-
+	
 	std::cout << "Default Fixed constructor called" << std::endl;
 }
 
@@ -30,11 +29,15 @@ Fixed::Fixed(const int number) {
 
 Fixed::Fixed(const float number) {
 
-	_value = roundf(number * 256.0);
+	float ret = number;
+
+	for (int i = 0; i < _fractionalBits; i++)
+		ret *= 2.0;
+	_value = roundf(ret);
 	std::cout << "Fixed constructor called for value: " << number << std::endl;
 }
 
-Fixed::Fixed(Fixed &original) : _value(original._value) {
+Fixed::Fixed(Fixed &original) : _value(original._value), _divider(original._divider) {
 	
 	std::cout << "Fixed copy constructor called" << std::endl;
 }
@@ -60,7 +63,11 @@ void	Fixed::setRawBits(int const raw) {
 
 float	Fixed::toFloat(void) const {
 
-	return (_value / 256.0);
+	float	ret = _value;
+
+	for (int i = 0; i < _fractionalBits; i++)
+		ret /= 2.0; 
+	return (ret);
 }
 
 int		Fixed::toInt(void) const {

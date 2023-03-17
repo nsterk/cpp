@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/02/11 21:00:02 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/17 21:53:27 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,27 @@
 /* Constructors & destructor */
 
 Fixed::Fixed(void) : _value(0) {
-
+	
 	std::cout << "Default Fixed constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int number) {
 
 	_value = number << _fractionalBits;
-	std::cout << "Fixed constructor called for value: " << number << std::endl;
+	std::cout << "Fixed constructor called for int value: " << number << std::endl;
 }
 
 Fixed::Fixed(const float number) {
 
-	_value = roundf(number * 256.0);
-	std::cout << "Fixed constructor called for number: " << number << std::endl;
+	float ret = number;
+
+	for (int i = 0; i < _fractionalBits; i++)
+		ret *= 2.0;
+	_value = roundf(ret);
+	std::cout << "Fixed constructor called for float value: " << number << std::endl;
 }
 
-Fixed::Fixed(Fixed &original) : _value(original._value) {
+Fixed::Fixed(Fixed const &original) : _value(original._value) {
 	
 	std::cout << "Fixed copy constructor called" << std::endl;
 }
@@ -59,7 +63,11 @@ void	Fixed::setRawBits(int const raw) {
 
 float	Fixed::toFloat(void) const {
 
-	return (_value / 256.0);
+	float	ret = _value;
+
+	for (int i = 0; i < _fractionalBits; i++)
+		ret /= 2.0; 
+	return (ret);
 }
 
 int		Fixed::toInt(void) const {
@@ -67,9 +75,9 @@ int		Fixed::toInt(void) const {
 	return (_value >> _fractionalBits);
 }
 
-/*	Operator overloads */
+/* Operator overloads */
 
-Fixed&			Fixed::operator=(Fixed const &rhs) {
+Fixed&	Fixed::operator=(Fixed const &rhs) {
 
 	this->_value = rhs.getRawBits();
 	return *this;
@@ -81,5 +89,11 @@ std::ostream&	operator<<(std::ostream& out, Fixed const &f) {
 	return (out);
 }
 
-/*	Arithmetic operators */
+/* Arithmetic operators */
+Fixed		Fixed::operator-(Fixed const &rhs) const {
 
+	Fixed ret;
+
+	ret._value = _value - rhs.getRawBits();
+	return (ret);
+}
