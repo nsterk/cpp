@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/17 21:53:21 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/17 21:58:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Fixed {
 		/* Operator overloads */
 		Fixed&		operator=(Fixed const &rhs);
 		Fixed		operator-(Fixed const &rhs) const;
+		Fixed		operator+(Fixed const &rhs) const;
 
 	private:
 
