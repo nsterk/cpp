@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/17 22:01:32 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/19 19:33:25 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,13 @@ Fixed::Fixed(void) : _value(0) {
 Fixed::Fixed(const int number) {
 
 	_value = number << _fractionalBits;
-	// std::cout << "Fixed constructor called for int value: " << number << std::endl;
+	std::cout << "Fixed constructor called for int value: " << number << std::endl;
 }
 
 Fixed::Fixed(const float number) {
 
-	float ret = number;
-
-	for (int i = 0; i < _fractionalBits; i++)
-		ret *= 2.0;
-	_value = roundf(ret);
-	// std::cout << "Fixed constructor called for float value: " << number << std::endl;
+	_value = roundf(number * (1 << _fractionalBits));
+	std::cout << "Fixed constructor called for float value: " << number << std::endl;
 }
 
 Fixed::Fixed(Fixed const &original) : _value(original._value) {
@@ -63,11 +59,9 @@ void	Fixed::setRawBits(int const raw) {
 
 float	Fixed::toFloat(void) const {
 
-	float	ret = _value;
-
-	for (int i = 0; i < _fractionalBits; i++)
-		ret /= 2.0; 
-	return (ret);
+	// float divider = 1 << _fractionalBits;
+	
+	return (float(_value) / float(1 << _fractionalBits));
 }
 
 int		Fixed::toInt(void) const {
@@ -93,7 +87,7 @@ std::ostream&	operator<<(std::ostream& out, Fixed const &f) {
 
 Fixed		Fixed::operator-(Fixed const &rhs) const {
 
-	Fixed ret;
+	Fixed	ret;
 
 	ret._value = _value - rhs.getRawBits();
 	return (ret);
@@ -101,8 +95,16 @@ Fixed		Fixed::operator-(Fixed const &rhs) const {
 
 Fixed		Fixed::operator+(Fixed const &rhs) const {
 
-	Fixed ret;
+	Fixed	ret;
 
 	ret._value = _value + rhs.getRawBits();
+	return (ret);
+}
+
+Fixed		Fixed::operator*(Fixed const &rhs) const {
+
+	Fixed	ret;
+	// int result = ((long)_value * (long)rhs.getRawBits()) >> _fractionalBits;
+	ret.setRawBits(((long)_value * (long)rhs.getRawBits()) >> _fractionalBits);
 	return (ret);
 }
