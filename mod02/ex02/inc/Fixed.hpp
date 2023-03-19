@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/19 19:17:46 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/19 21:09:41 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,18 @@ class Fixed {
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
-		/* Operator overloads */
-		Fixed&		operator=(Fixed const &rhs);
-		Fixed		operator-(Fixed const &rhs) const;
-		Fixed		operator+(Fixed const &rhs) const;
-		Fixed		operator*(Fixed const &rhs) const;
+		/* Arithmetic operators */
+		Fixed&	operator=(Fixed const &rhs);
+		Fixed	operator-(Fixed const &rhs) const;
+		Fixed	operator+(Fixed const &rhs) const;
+		Fixed	operator*(Fixed const &rhs) const;
+		Fixed	operator/(Fixed const &rhs) const;
+		
+		/* Comparison operators */
+		bool	operator<(Fixed const &rhs) const;
+		bool	operator>(Fixed const &rhs) const;
+		bool	operator<=(Fixed const &rhs) const;
+		bool	operator>=(Fixed const &rhs) const;
 
 	private:
 
