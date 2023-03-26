@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/19 21:09:41 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/26 23:17:49 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 class Fixed {
 
 	public:
-
+		/* Constructors and destructor */
 		Fixed(void);
 		Fixed(const int number);
 		Fixed(const float number);
 		Fixed(Fixed const &original);
 		~Fixed(void);
 	
-		/* Member functions */
+		/* Member functions (non-static) */
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;
@@ -37,12 +37,26 @@ class Fixed {
 		Fixed	operator+(Fixed const &rhs) const;
 		Fixed	operator*(Fixed const &rhs) const;
 		Fixed	operator/(Fixed const &rhs) const;
-		
+
+		/* Increment and decrement operators */
+		Fixed&	operator++(void);
+		Fixed&	operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+	
 		/* Comparison operators */
 		bool	operator<(Fixed const &rhs) const;
 		bool	operator>(Fixed const &rhs) const;
 		bool	operator<=(Fixed const &rhs) const;
 		bool	operator>=(Fixed const &rhs) const;
+		bool	operator==(Fixed const &rhs) const;
+		bool	operator!=(Fixed const &rhs) const;
+
+		/* Static member functions (must be defined inside class body) */
+		static Fixed const&	min(Fixed const &a, Fixed const &b) {return (a.getRawBits() < b.getRawBits() ? a : b);};
+		static Fixed&		min(Fixed &a, Fixed &b) {return (a.getRawBits() < b.getRawBits() ? a : b);};
+		static Fixed const&	max(Fixed const &a, Fixed const &b) {return (a.getRawBits() > b.getRawBits() ? a : b);};
+		static Fixed&		max(Fixed &a, Fixed &b) {return (a.getRawBits() > b.getRawBits() ? a : b);};
 
 	private:
 

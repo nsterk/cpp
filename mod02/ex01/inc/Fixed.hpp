@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/16 20:30:31 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/03/20 16:27:16 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Fixed {
 		Fixed(void);
 		Fixed(const int number);
 		Fixed(const float number);
-		Fixed(Fixed &original);
+		Fixed(Fixed const &original);
 		~Fixed(void);
 	
 		/* Member functions */
@@ -32,13 +32,12 @@ class Fixed {
 		int		toInt(void) const;
 
 		/* Operator overloads */
-		Fixed&			operator=(Fixed const &rhs);
+		Fixed&	operator=(Fixed const &rhs);
 
 	private:
 
 		int					_value;
 		static const int	_fractionalBits = 8;
-		float				_divider;
 };
 
 std::ostream&	operator<<(std::ostream& out, Fixed const &f);
