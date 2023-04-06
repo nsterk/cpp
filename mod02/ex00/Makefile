@@ -6,21 +6,21 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/01/12 19:41:22 by nsterk        ########   odam.nl          #
+#    Updated: 2023/04/06 16:52:31 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	Fixed
 CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
+FLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRCS	=	srcs/main.cpp srcs/Fixed.cpp
 OBJS	=	$(SRCS:%.cpp=%.o)
 
 all:	$(NAME)
 
-$(NAME): $(SRCS)
-	$(CC) $(SRCS) $(FLAGS) -Iinc -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) $(FLAGS) -Iinc -o $(NAME)
 
 run:	all
 	@ ./Fixed
