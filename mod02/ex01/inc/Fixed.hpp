@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/06 18:09:08 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 16:24:59 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Fixed {
 	public:
 		/* Constructors and destructor */
 		Fixed(void);
+		Fixed(Fixed const &original);
 		Fixed(const int number);
 		Fixed(const float number);
-		Fixed(Fixed const &original);
 		~Fixed(void);
 	
 		/* Member functions */

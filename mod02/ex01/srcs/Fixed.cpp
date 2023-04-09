@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/20 18:33:54 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 16:35:04 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,25 @@
 
 /* Constructors & destructor */
 
-Fixed::Fixed(void) : _value(0) {}
+Fixed::Fixed(void) : _value(0) {
 
-Fixed::Fixed(const int number) : _value(number << _fractionalBits) {}
+	std::cout << "Default constructor called" << std::endl;
+}
 
-Fixed::Fixed(const float number) : _value(roundf(number * (1 << _fractionalBits))){}
+Fixed::Fixed(const int number) : _value(number << _fractionalBits) {
+	
+	std::cout << "Int constructor called" << std::endl;
+}
 
-Fixed::Fixed(Fixed const &original) : _value(original._value) {}
+Fixed::Fixed(const float number) : _value(roundf(number * (1 << _fractionalBits))){
+
+	std::cout << "Float constructor called" << std::endl;
+}
+
+Fixed::Fixed(Fixed const &original) : _value(original._value) {
+	
+	std::cout << "Copy constructor called" << std::endl;
+}
 
 Fixed::~Fixed(void) {}
 
