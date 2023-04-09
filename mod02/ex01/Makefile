@@ -6,25 +6,22 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/04/06 20:53:30 by nsterk        ########   odam.nl          #
+#    Updated: 2023/04/09 16:13:15 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:=	Fixed
-CC			:=	c++
-FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -Iinc
 
-# Directories
-INCL_DIR	:=	inc
+INC_DIR		:=	inc
 SRCS_DIR	:=	srcs
 OBJ_DIR		:=	objs
-# What is VPATH: https://www.gnu.org/software/make/manual/html_node/General-Search.html
-# subst will replace every space with the 
-VPATH		:=	$(subst $(space),:,$(shell find $(SRCS_DIR) -type d))
+VPATH		:=	$(subst $(space),:,$(shell find srcs -type d))
 
-# Srcs
 SRCS		=	main.cpp Fixed.cpp
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
+
+CC			:=	c++
+FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
 all:		$(NAME)
 
@@ -32,15 +29,14 @@ $(NAME):	$(OBJS)
 	$(CC) $(OBJS) $(FLAGS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(notdir %.cpp)
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -I$(INCL_DIR) -o $@
+	@ mkdir -p $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -o $@
 
 run:	all
-	@ $(NAME)
-	@ echo $(subst $(space),:,$(shell find $(SRCS_DIR) -type d))
+	@ ./$(NAME)
 
 clean:
-	@ rm -rf $(OBJS)
+	@ rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@ rm -rf $(NAME)
