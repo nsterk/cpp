@@ -6,13 +6,11 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:57:58 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/09 16:30:59 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 17:38:18 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include "colours.hpp"
-#include <iostream>
 
 int	main(void) {
 

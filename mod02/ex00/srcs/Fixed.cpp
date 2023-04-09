@@ -6,12 +6,12 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/09 16:15:56 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 17:40:29 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
 #include <iostream>
+#include "Fixed.hpp"
 
 Fixed::Fixed(void) : _value(0) {
 

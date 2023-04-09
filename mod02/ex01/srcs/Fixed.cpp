@@ -6,13 +6,12 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/09 16:35:04 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 17:39:40 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
-#include <iostream>
 
 /* Constructors & destructor */
 

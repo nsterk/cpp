@@ -6,12 +6,14 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/09 16:25:36 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 17:37:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
+
+#include "colours.hpp"
 
 class Fixed {
 

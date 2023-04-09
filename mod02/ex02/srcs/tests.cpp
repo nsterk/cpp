@@ -6,12 +6,11 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 16:59:33 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/09 16:17:36 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 18:35:23 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include "colours.hpp"
 
 /**
  * @brief Demonstrates the + and - operators
@@ -20,7 +19,7 @@
  */
 void	subtractionTests(Fixed const A, Fixed const B) {
 
-	std::cout << U_WHT"Subtraction and addition operators"RESET << std::endl;
+	std::cout << GRN"Subtraction and addition operators"RST << std::endl;
 	std::cout << "A: " << A << "  B: " << B << std::endl;
 	std::cout << "A - B = " << A - B << std::endl;
 	std::cout << "B - A = " << B - A << std::endl;
@@ -35,7 +34,7 @@ void	subtractionTests(Fixed const A, Fixed const B) {
  */
 void	comparisonTests(Fixed const A, Fixed const B) {
 
-	std::cout << U_WHT"Comparison operators"RESET << std::endl;
+	std::cout << GRN"Comparison operators"RST << std::endl;
 	std::cout << "A = " << A << "  B = " << B << std::endl;
 	std::cout << "A < B: " << (A < B) << std::endl;
 	std::cout << "(A + B) < B: " << ((A + B) < B) << std::endl;
@@ -53,8 +52,7 @@ void	comparisonTests(Fixed const A, Fixed const B) {
  */
 void	multiDiviTests(Fixed const A, Fixed const B) {
 
-	std::cout << U_WHT"Multiplication and division operators"RESET << std::endl;
-	std::cout << "A = " << A << "  B = " << B << std::endl;
+	std::cout << GRN"Multiplication and division operators\t"RST << "A = " << A << "  B = " << B << std::endl;
 	std::cout << "A * B: " << A * B << std::endl;
 	std::cout << "A / B: " << A / B << std::endl;
 	std::cout << "B / A: " << B / A << std::endl;
@@ -69,7 +67,7 @@ void	incrementDecrementTests(void) {
 
 	Fixed a;
 
-	std::cout << U_WHT"Increment and decrement operators"RESET << std::endl;
+	std::cout << GRN"Increment and decrement operators"RST << std::endl;
 	std::cout << "a:   " << a << std::endl;
 	std::cout << "++a: " << ++a << std::endl;
 	std::cout << "a:   " << a << std::endl;

@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/09 16:24:14 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 17:40:19 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include "colours.hpp"
 
 class Fixed {
 

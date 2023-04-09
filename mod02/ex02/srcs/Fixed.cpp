@@ -6,14 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/09 16:17:23 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 17:40:42 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
 #include <cmath>
 #include <stdbool.h>
-#include <iostream>
+#include "Fixed.hpp"
 
 /* Constructors & destructor */
 
@@ -47,20 +46,6 @@ float	Fixed::toFloat(void) const {
 int		Fixed::toInt(void) const {
 
 	return (_value >> _fractionalBits);
-}
-
-/* Operator overloads */
-
-Fixed&	Fixed::operator=(Fixed const &rhs) {
-
-	this->_value = rhs.getRawBits();
-	return (*this);
-}
-
-std::ostream&	operator<<(std::ostream& out, Fixed const &f) {
-
-	out << f.toFloat();
-	return (out);
 }
 
 /* Arithmetic operator overloads */
@@ -162,4 +147,18 @@ bool	Fixed::operator==(Fixed const &rhs) const {
 
 bool	Fixed::operator!=(Fixed const &rhs) const {
 	return (_value != rhs.getRawBits() ? true : false);
+}
+
+/* Other operator overloads */
+
+Fixed&	Fixed::operator=(Fixed const &rhs) {
+
+	this->_value = rhs.getRawBits();
+	return (*this);
+}
+
+std::ostream&	operator<<(std::ostream& out, Fixed const &f) {
+
+	out << f.toFloat();
+	return (out);
 }
