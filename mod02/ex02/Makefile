@@ -6,27 +6,37 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/04/06 16:51:53 by nsterk        ########   odam.nl          #
+#    Updated: 2023/04/09 16:18:02 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Fixed
-CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
+NAME		:=	Fixed
 
-SRCS	=	srcs/main.cpp srcs/Fixed.cpp srcs/tests.cpp
-OBJS	=	$(SRCS:%.cpp=%.o)
+INC_DIR		:=	inc
+SRCS_DIR	:=	srcs
+OBJ_DIR		:=	objs
+VPATH		:=	$(subst $(space),:,$(shell find srcs -type d))
 
-all:	$(NAME)
+SRCS		=	main.cpp Fixed.cpp tests.cpp
+OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) $(FLAGS) -Iinc -o $(NAME)
+CC			:=	c++
+FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
+
+all:		$(NAME)
+
+$(NAME):	$(OBJS)
+	$(CC) $(OBJS) $(FLAGS) -o $(NAME)
+
+$(OBJ_DIR)/%.o: $(notdir %.cpp)
+	@ mkdir -p $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -o $@
 
 run:	all
-	@ ./Fixed
+	@ ./$(NAME)
 
 clean:
-	@ rm -rf $(OBJS)
+	@ rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@ rm -rf $(NAME)

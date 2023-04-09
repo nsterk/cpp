@@ -6,11 +6,11 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/06 18:02:17 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 16:15:56 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Fixed.hpp"
+#include "Fixed.hpp"
 #include <iostream>
 
 Fixed::Fixed(void) : _value(0) {
@@ -18,7 +18,7 @@ Fixed::Fixed(void) : _value(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &original) : _value(original.getRawBits()) {
+Fixed::Fixed(Fixed const &original) : _value(original.getRawBits()) {
 	
 	std::cout << "Copy constructor called" << std::endl;
 }

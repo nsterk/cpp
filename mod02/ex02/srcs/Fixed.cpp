@@ -6,11 +6,11 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:43:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/26 23:22:24 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 16:17:23 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Fixed.hpp"
+#include "Fixed.hpp"
 #include <cmath>
 #include <stdbool.h>
 #include <iostream>

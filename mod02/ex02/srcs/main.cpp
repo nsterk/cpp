@@ -6,12 +6,12 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/29 20:57:58 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/26 23:34:59 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 16:17:29 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Fixed.hpp"
-#include "../inc/colours.hpp"
+#include "Fixed.hpp"
+#include "colours.hpp"
 #include <iostream>
 
 void subtractionTests(Fixed A, Fixed B);

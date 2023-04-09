@@ -6,12 +6,12 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/20 16:59:33 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/03/26 23:36:42 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/04/09 16:17:36 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Fixed.hpp"
-#include "../inc/colours.hpp"
+#include "Fixed.hpp"
+#include "colours.hpp"
 
 /**
  * @brief Demonstrates the + and - operators
