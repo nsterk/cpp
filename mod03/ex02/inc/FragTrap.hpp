@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   FragTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/12 12:34:30 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/21 22:59:04 by nsterk        ########   odam.nl         */
+/*   Created: 2023/04/21 22:50:22 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/04/21 22:57:00 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int	main(void) {
+#include "ClapTrap.hpp"
 
-	FragTrap	Momo("Motherfucking Momo");
+class FragTrap : public ClapTrap {
 
-	Momo.attack("Naomi");
-	Momo.beRepaired(30);
-	Momo.takeDamage(100);
-	Momo.highFivesGuys();
-	return (0);
-}
+	public:
+		FragTrap(void);
+		FragTrap(std::string name);
+		~FragTrap(void);
+		
+		void	highFivesGuys(void);
+};
+
+#endif
