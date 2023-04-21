@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/12 12:34:30 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/21 20:14:35 by nsterk        ########   odam.nl         */
+/*   Created: 2023/04/21 20:34:03 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/04/21 21:05:16 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int	main(void) {
+class ScavTrap: public ClapTrap {
 
-	ClapTrap	beast("Momo");
+	public:
+		ScavTrap(void);
+		ScavTrap(std::string name);
+		~ScavTrap(void);
+		
+		void	guardGate(void);
+};
 
-	beast.attack("Naomi");
-	beast.takeDamage(5);
-	beast.beRepaired(5);
-	return (0);
-}
+#endif
