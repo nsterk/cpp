@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/12 12:34:30 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/05/05 14:40:52 by nsterk        ########   odam.nl         */
+/*   Created: 2023/04/21 20:34:03 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/05/06 16:07:38 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int	main(void) {
+#include "ClapTrap.hpp"
 
-	FragTrap	Momo("Motherfucking Momo");
+class ScavTrap: public virtual ClapTrap {
 
-	Momo.attack("Naomi");
-	Momo.beRepaired(30);
-	Momo.takeDamage(100);
-	Momo.highFivesGuys();
-	return (0);
-}
+	public:
+		ScavTrap(void);
+		ScavTrap(const std::string& name);
+		~ScavTrap(void);
+		
+		void	guardGate(void);
+	
+	protected:
+		const unsigned int	_energyPts;
+};
+
+#endif
