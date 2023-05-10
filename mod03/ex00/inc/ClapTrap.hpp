@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/12 12:41:51 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/05/07 14:22:28 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ClapTrap {
 	public:
 
 		ClapTrap(void);
+		ClapTrap(ClapTrap const &original);
 		ClapTrap(std::string name);
 		~ClapTrap(void);
 

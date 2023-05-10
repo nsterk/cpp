@@ -6,28 +6,18 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/21 20:21:24 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/05/07 14:21:47 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) {
-
-	_name = "default";
-	_hitPts = HP;
-	_energyPts = EP;
-	_attackDmg = AD;
-
+ClapTrap::ClapTrap(void) : _htPts(HP), _energyPts(EP), _attackDmg(AD) {
+	
 	std::cout << "Default constructor called " << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
-
-	_name = name;
-	_hitPts = HP;
-	_energyPts = EP;
-	_attackDmg = AD;
 
 	std::cout << "Constructor called for " << name << std::endl;
 };
