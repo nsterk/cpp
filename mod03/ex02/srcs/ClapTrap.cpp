@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/21 20:56:47 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/11 13:41:20 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,14 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP),
 	std::cout << "ClapTrap constructor called for " << name << std::endl;
 };
 
+ClapTrap::ClapTrap(ClapTrap const &original) {
+
+	this = original;
+};
+
 ClapTrap::~ClapTrap(void) {
 
-		std::cout << "ClapTrap destructor called for " << _name << std::endl;
+	std::cout << "ClapTrap destructor called for " << _name << std::endl;
 };
 
 /** Getters and setters */
@@ -75,4 +80,14 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 void	ClapTrap::beRepaired(unsigned int amount) {
 
 	std::cout << "ClapTrap " << _name << " repairs itself! Bam! It has regained " << amount << " hit points!" << std::endl;
+};
+
+/** Operator overloads */
+ClapTrap&	ClapTrap::operator=(ClapTrap const &rhs) {
+
+	this->_name = rhs._name;
+	this->_hitPts = rhs._hitPts;
+	this->_energyPts = rhs._energyPts;
+	this->_attackDmg = rhs._attackDmg;
+	return (*this);
 };
