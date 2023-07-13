@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:50:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/21 22:57:00 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/12 12:20:56 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ class FragTrap : public ClapTrap {
 	public:
 		FragTrap(void);
 		FragTrap(std::string name);
+		FragTrap(FragTrap const &original);
 		~FragTrap(void);
-		
+	
+		// FragTrap&	operator=(FragTrap const &rhs);
 		void	highFivesGuys(void);
 };
 

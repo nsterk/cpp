@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/11 13:41:20 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/11 17:30:45 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP),
 
 ClapTrap::ClapTrap(ClapTrap const &original) {
 
-	this = original;
+	*this = original;
 };
 
 ClapTrap::~ClapTrap(void) {

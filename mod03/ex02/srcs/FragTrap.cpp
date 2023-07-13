@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:51:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/21 22:57:56 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/12 12:17:06 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ FragTrap::FragTrap(std::string name) {
 	setEnergyPts(100);
 	setAttackDmg(30);
 }
+
+FragTrap::FragTrap(FragTrap const &original) {
+
+	*this = original;
+};
+
+FragTrap&	FragTrap::operator=(FragTrap const &rhs) {
+
+};
 
 void	FragTrap::highFivesGuys(void) {
 
