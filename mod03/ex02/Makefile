@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/05/05 14:43:18 by nsterk        ########   odam.nl          #
+#    Updated: 2023/07/13 14:52:09 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS_DIR	:=	srcs
 OBJ_DIR		:=	objs
 VPATH		:=	$(subst $(space),:,$(shell find srcs -type d))
 
-SRCS		=	main.cpp ClapTrap.cpp FragTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC			:=	c++

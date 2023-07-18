@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:34:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/04/21 21:05:16 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/13 14:48:22 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ class ScavTrap: public ClapTrap {
 	public:
 		ScavTrap(void);
 		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const &original);
 		~ScavTrap(void);
-		
-		void	guardGate(void);
+	
+		ScavTrap&	operator=(ScavTrap const &rhs);
+		void		guardGate(void);
 };
 
 #endif

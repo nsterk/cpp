@@ -6,28 +6,18 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/11 17:30:45 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/13 15:42:24 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) {
-
-	_name = "default";
-	_hitPts = HP;
-	_energyPts = EP;
-	_attackDmg = AD;
+ClapTrap::ClapTrap(void) : _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
 	std::cout << "Default ClapTrap constructor called " << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
-
-	_name = name;
-	_hitPts = HP;
-	_energyPts = EP;
-	_attackDmg = AD;
 
 	std::cout << "ClapTrap constructor called for " << name << std::endl;
 };
@@ -42,9 +32,9 @@ ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap destructor called for " << _name << std::endl;
 };
 
-/** Getters and setters */
+/* Setter functions */
 
-void	ClapTrap::setName(std::string name) {
+void	ClapTrap::setName(const std::string &name) {
 
 	_name = name;
 }
@@ -63,6 +53,29 @@ void	ClapTrap::setAttackDmg(unsigned int amount) {
 
 	_attackDmg = amount;
 }
+
+/* Getter functions */
+
+std::string	ClapTrap::getName(void) const {
+
+	return (this->_name);
+};
+
+unsigned int	ClapTrap::getHitPts(void) const {
+
+	return (this->_hitPts);
+};
+
+unsigned int	ClapTrap::getEnergyPts(void) const {
+
+	return (this->_energyPts);
+};
+
+
+unsigned int	ClapTrap::getAttackDmg(void) const {
+
+	return (this->_attackDmg);
+};
 
 void	ClapTrap::attack(const std::string& target) {
  

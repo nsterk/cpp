@@ -6,25 +6,70 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/05/07 14:21:47 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/13 15:41:28 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _htPts(HP), _energyPts(EP), _attackDmg(AD) {
+ClapTrap::ClapTrap(void) : _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 	
-	std::cout << "Default constructor called " << std::endl;
+	std::cout << "Default ClapTrap constructor called " << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
-	std::cout << "Constructor called for " << name << std::endl;
+	std::cout << "ClapTrap constructor called for " << name << std::endl;
 };
 
 ClapTrap::~ClapTrap(void) {
 
-		std::cout << "Destructor called for " << _name << std::endl;
+	std::cout << "ClapTrap Destructor called for " << _name << std::endl;
+};
+
+/* Setter functions */
+
+void	ClapTrap::setName(const std::string &name) {
+
+	_name = name;
+}
+
+void	ClapTrap::setHitPts(unsigned int amount) {
+
+	_hitPts = amount;
+}
+
+void	ClapTrap::setEnergyPts(unsigned int amount) {
+
+	_energyPts = amount;
+}
+
+void	ClapTrap::setAttackDmg(unsigned int amount) {
+
+	_attackDmg = amount;
+}
+
+/* Getter functions */
+
+std::string	ClapTrap::getName(void) const {
+
+	return (this->_name);
+};
+
+unsigned int	ClapTrap::getHitPts(void) const {
+
+	return (this->_hitPts);
+};
+
+unsigned int	ClapTrap::getEnergyPts(void) const {
+
+	return (this->_energyPts);
+};
+
+
+unsigned int	ClapTrap::getAttackDmg(void) const {
+
+	return (this->_attackDmg);
 };
 
 void	ClapTrap::attack(const std::string& target) {

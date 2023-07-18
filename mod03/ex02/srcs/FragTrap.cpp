@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:51:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/12 12:17:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/13 14:35:15 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ FragTrap::FragTrap(FragTrap const &original) {
 
 FragTrap&	FragTrap::operator=(FragTrap const &rhs) {
 
+	this->setName(rhs.getName());
+	this->setHitPts(rhs.getHitPts());
+	this->setEnergyPts(rhs.getEnergyPts());
+	this->setAttackDmg(rhs.getAttackDmg());
+	return (*this);
 };
 
 void	FragTrap::highFivesGuys(void) {
