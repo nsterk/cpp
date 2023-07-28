@@ -6,13 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/13 15:42:24 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/18 14:05:23 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
+ClapTrap::ClapTrap(void) : _name("default"), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
 	std::cout << "Default ClapTrap constructor called " << std::endl;
 };
@@ -24,6 +24,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP),
 
 ClapTrap::ClapTrap(ClapTrap const &original) {
 
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = original;
 };
 
@@ -71,7 +72,6 @@ unsigned int	ClapTrap::getEnergyPts(void) const {
 	return (this->_energyPts);
 };
 
-
 unsigned int	ClapTrap::getAttackDmg(void) const {
 
 	return (this->_attackDmg);
@@ -96,6 +96,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 };
 
 /** Operator overloads */
+
 ClapTrap&	ClapTrap::operator=(ClapTrap const &rhs) {
 
 	this->_name = rhs._name;

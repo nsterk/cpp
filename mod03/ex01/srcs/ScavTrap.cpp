@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:41:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/13 15:46:00 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/25 17:45:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ ScavTrap::ScavTrap(std::string name) {
 
 	std::cout << "ScavTrap constructor called for " << name << std::endl;
 	setName(name);
-	setHitPts(100);
-	setEnergyPts(50);
-	setAttackDmg(20);
+	setHP(100);
+	setEP(50);
+	setAD(20);
 }
 
 ScavTrap::ScavTrap(ScavTrap const &original) {
@@ -39,13 +39,21 @@ ScavTrap::~ScavTrap(void) {
 ScavTrap&	ScavTrap::operator=(ScavTrap const &rhs) {
 
 	this->setName(rhs.getName());
-	this->setHitPts(rhs.getHitPts());
-	this->setEnergyPts(rhs.getEnergyPts());
-	this->setAttackDmg(rhs.getAttackDmg());
+	this->setHP(rhs.getHP());
+	this->setEP(rhs.getEP());
+	this->setAD(rhs.getAD());
 	return (*this);
 }
 
 void	ScavTrap::guardGate(void) {
 
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode" << std::endl;
+}
+
+void	ScavTrap::attack(const std::string &target) {
+
+	if (!getEP() || !getHP())
+		std::cout << "ScavTrap " << getName() << " tries to attack " << target << ", but is too weak" << std::endl;
+	else
+		std::cout << "ScavTrap " << getName() << " brutally attacks " << target << ", causing " << getAD() << " points of damage!" << std::endl;
 }

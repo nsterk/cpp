@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:41:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/13 14:47:45 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/18 14:06:59 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ ScavTrap::ScavTrap(std::string name) {
 ScavTrap::ScavTrap(ScavTrap const &original) {
 
 	*this = original;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void) {

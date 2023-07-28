@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/13 15:46:34 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/25 16:56:06 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include "colours.hpp"
 
 # define HP 10
 # define EP 10
@@ -30,14 +31,14 @@ class ClapTrap {
 		~ClapTrap(void);
 		
 		void			setName(const std::string &name);
-		void			setHitPts(unsigned int amount);
-		void			setEnergyPts(unsigned int amount);
-		void			setAttackDmg(unsigned int amount);
+		void			setHP(unsigned int amount);
+		void			setEP(unsigned int amount);
+		void			setAD(unsigned int amount);
 	
 		std::string		getName(void) const;
-		unsigned int	getHitPts(void) const;
-		unsigned int	getEnergyPts(void) const;
-		unsigned int	getAttackDmg(void) const;
+		unsigned int	getHP(void) const;
+		unsigned int	getEP(void) const;
+		unsigned int	getAD(void) const;
 
 		void			attack(const std::string& target);
 		void			takeDamage(unsigned int amount);
