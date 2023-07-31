@@ -6,31 +6,31 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/21 12:51:58 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/30 13:14:15 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/31 13:02:52 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : name("Default") ,_type("Base animal") {
+Animal::Animal(void) : name("Default"), _type("Base animal") {
 
-	std::cout << "An "L_GRN"animal"RST" named "L_GRN << name << RST" was born" << std::endl;
+	// std::cout << "An "L_GRN"animal"RST" named "L_GRN << name << RST" was born" << std::endl;
+}
+
+Animal::Animal(std::string name) : name(name), _type("Base animal") {
+
+	// std::cout << "An "L_GRN"animal"RST" named "L_GRN << name << RST" was born" << std::endl;
 }
 
 Animal::Animal(Animal const &original) {
 
 	*this = original;
-	std::cout << "An "L_GRN"animal"RST" was "L_GRN"cloned"RST << std::endl;
-}
-
-Animal::Animal(std::string name) : name(name), _type("Base animal") {
-
-	std::cout << "An "L_GRN"animal"RST" named "L_GRN << name << RST" was born" << std::endl;
+	// std::cout << "An "L_GRN"animal"RST" was "L_GRN"cloned"RST << std::endl;
 }
 
 Animal::~Animal(void) {
 
-	std::cout << "Animal destructor called" << std::endl;
+	// std::cout << "Animal destructor called" << std::endl;
 }
 
 void Animal::makeSound(void) const

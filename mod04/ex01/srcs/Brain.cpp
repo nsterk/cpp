@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
+/*   Brain.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/07/21 13:17:01 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/30 12:57:50 by nsterk        ########   odam.nl         */
+/*   Created: 2023/07/27 17:09:09 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/07/31 13:03:52 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Brain.hpp"
 
-#include "Animal.hpp"
+Brain::Brain(void) {
 
-class Cat : public Animal {
+	// std::cout << "A brain was born" << std::endl;
+}
 
-	public:
-
-		Cat(void);
-		Cat(Cat const &original);
-		Cat(std::string name);
-		~Cat(void);
+Brain::Brain(Brain const &original) {
 	
-		Cat&	operator=(Cat const &rhs);
-		
-		void	makeSound(void) const;
-};
+	*this = original;
+	// std::cout << "A brain was cloned" << std::endl;
+}
 
-#endif
+Brain::~Brain(void) {
+	// std::cout << "A brain died" << std::endl;
+}
+
+Brain&	Brain::operator=(Brain const &rhs) {
+
+	for (size_t i = 0; i < 100; i++)
+		this->ideas[i] = rhs.ideas[i];
+	return (*this);
+}

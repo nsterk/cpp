@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/07/14 13:48:43 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/30 12:57:12 by nsterk        ########   odam.nl         */
+/*   Created: 2023/07/21 13:17:01 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/07/30 13:37:34 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <string>
-#include <iostream>
-#include "colours.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Animal {
+class Dog : public Animal {
 
 	public:
+		Dog(void);
+		Dog(std::string name);
+		Dog(Dog const &original);
+		virtual ~Dog(void);
+		
+		Dog&	operator=(Dog const &rhs);
 
-		Animal(void);
-		Animal(std::string name);
-		virtual ~Animal(void);
-		Animal(Animal const &original);
-		Animal&	operator=(Animal const &rhs);
-
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
-		// void		setType(std::string &type);
-
-		std::string	name;
+		void	makeSound(void) const;
+		Brain*	getBrain(void) const;
+		void	randomThought(void) const;
 	
-	protected:
-
-		std::string	_type;
+	private:
+		Brain*	_brain;
+		void	ponderLife(void);
 };
 
 #endif
