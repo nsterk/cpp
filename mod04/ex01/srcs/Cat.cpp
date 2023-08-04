@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/21 13:19:09 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/31 13:08:59 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/04 15:33:14 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Cat::Cat(void) {
 
-	// std::cout << "A "L_GRN"regular cat "RST"spawned" << std::endl;
+	std::cout << "A "L_GRN"regular cat "RST"spawned" << std::endl;
 	this->name = "Nameless";
 	this->_type = "Cat";
 	this->_brain = new Brain();
@@ -26,7 +26,7 @@ Cat::Cat(std::string name) {
 
 	this->_type = "Cat";
 	this->name = name;
-	// std::cout << "A "L_GRN"cat"RST" named "L_GRN << name << RST" was born" << std::endl;
+	std::cout << "A "L_GRN"cat"RST" named "L_GRN << name << RST" was born" << std::endl;
 	this->_brain = new Brain();
 	ponderLife();
 }
@@ -34,14 +34,14 @@ Cat::Cat(std::string name) {
 Cat::Cat(Cat const &original) : _brain(new Brain()){
 
 	*this = original;
-	// std::cout << "A "L_GRN"cat"RST" was "L_GRN"cloned"RST << std::endl;
+	std::cout << "A "L_GRN"cat"RST" was "L_GRN"cloned"RST << std::endl;
 }
 
 Cat::~Cat(void) {
 
 	if (_brain)
 		delete _brain;
-	// std::cout << "A"PRETTY_RED" cat"RST" was murdered" << std::endl;
+	std::cout << "A"PRETTY_RED" cat"RST" was murdered" << std::endl;
 }
 
 void	Cat::makeSound(void) const {

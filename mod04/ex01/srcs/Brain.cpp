@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/27 17:09:09 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/31 13:03:52 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/04 15:33:04 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 Brain::Brain(void) {
 
-	// std::cout << "A brain was born" << std::endl;
+	std::cout << "A brain was born" << std::endl;
 }
 
 Brain::Brain(Brain const &original) {
 	
 	*this = original;
-	// std::cout << "A brain was cloned" << std::endl;
+	std::cout << "A brain was cloned" << std::endl;
 }
 
 Brain::~Brain(void) {
-	// std::cout << "A brain died" << std::endl;
+	std::cout << "A brain died" << std::endl;
 }
 
 Brain&	Brain::operator=(Brain const &rhs) {

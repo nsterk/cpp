@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/21 12:52:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/30 13:05:12 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/03 00:31:27 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	main(void) {
 
 	const Animal	*Skeletor = new Animal();
 	const Cat	*Momo = new Cat("Momo");
-	// const Animal& momoref = *Momo;
-	// momoref.makeSound();
+	const Animal& momoref = *Momo;
+	momoref.makeSound();
 	const Dog	*Fikkie = new Dog("Fikkie");
 	
 	std::cout << "Skeletor is an animal of type "CYAN << Skeletor->getType() << RST" and it says: ";
