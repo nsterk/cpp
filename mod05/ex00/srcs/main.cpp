@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Brain.cpp                                          :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/07/27 17:09:09 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/04 15:33:04 by nsterk        ########   odam.nl         */
+/*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/08/07 21:04:20 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include <iostream>
+#include "Bureaucrat.hpp"
 
-Brain::Brain(void) {
-
-	std::cout << "A brain was born" << std::endl;
-}
-
-Brain::Brain(Brain const &original) {
+int main(void)
+{
+	Bureaucrat b("bureaucrat");
+	Bureaucrat c(b);
 	
-	*this = original;
-	std::cout << "A brain was cloned" << std::endl;
-}
-
-Brain::~Brain(void) {
-	std::cout << "A brain died" << std::endl;
-}
-
-Brain&	Brain::operator=(Brain const &rhs) {
-
-	for (size_t i = 0; i < 100; i++)
-		this->ideas[i] = rhs.ideas[i];
-	return (*this);
+	try {
+		if (1 > 0)
+			throw 4;
+	}
+	catch (int i)
+	{
+		std::cout << i << std::endl;
+	}
+	return (0);
 }

@@ -6,23 +6,22 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/08/04 15:32:29 by nsterk        ########   odam.nl          #
+#    Updated: 2023/08/07 20:40:13 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Animal
+NAME		:=	Bureaucrat
 
 INC_DIR		:=	inc
 SRCS_DIR	:=	srcs
 OBJ_DIR		:=	objs
 VPATH		:=	$(subst $(space),:,$(shell find srcs -type d))
 
-SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS		=	main.cpp Bureaucrat.cpp
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC			:=	c++
-FLAGS		:=	-Wall -Wextra -std=c++98 -g -I$(INC_DIR)
-# FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g -I$(INC_DIR)
+FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g -I$(INC_DIR)
 
 all:		$(NAME)
 

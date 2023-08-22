@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/12 19:23:48 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/22 14:18:37 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/04 16:05:13 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define COLOURS_HPP
 
 #define L_GRN	"\033[38;2;102;204;102m"
+#define GRN2	"\033[38;2;102;255;0m"
 // #define PRETTY_RED	"\033[38;2;255;0;75m"
 #define PRETTY_RED	"\033[38;2;200;0;65m"
 
