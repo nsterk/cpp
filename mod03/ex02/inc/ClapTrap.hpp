@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/13 14:49:09 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/01 17:43:37 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ class ClapTrap {
 		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &original);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 
 		void			setName(const std::string &name);
-		void			setHitPts(unsigned int amount);
-		void			setEnergyPts(unsigned int amount);
-		void			setAttackDmg(unsigned int amount);
+		void			setHP(unsigned int amount);
+		void			setEP(unsigned int amount);
+		void			setAD(unsigned int amount);
 
 		std::string		getName(void) const;
-		unsigned int	getHitPts(void) const;
-		unsigned int	getEnergyPts(void) const;
-		unsigned int	getAttackDmg(void) const;
+		unsigned int	getHP(void) const;
+		unsigned int	getEP(void) const;
+		unsigned int	getAD(void) const;
 
 		void			attack(const std::string& target);
 		void			takeDamage(unsigned int amount);

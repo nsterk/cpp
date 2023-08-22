@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/25 17:42:01 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/01 16:58:40 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap {
 		ClapTrap(void);
 		ClapTrap(ClapTrap const &original);
 		ClapTrap(std::string name);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 
 		void			setName(const std::string &name);
 		void			setHP(unsigned int amount);

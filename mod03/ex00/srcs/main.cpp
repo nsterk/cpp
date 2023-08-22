@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/12 12:34:30 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/25 17:31:30 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/07/31 15:52:46 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	announceRound(unsigned int nr, ClapTrap &obj) {
 
-	std::cout << "\n" << BACK_WHT"Round " << nr << "... FIGHT!"RST"  ";
-	std::cout << U_WHT"HP " << obj.getHP() << " EP " << obj.getEP() << " AD " << obj.getAD() << RST << std::endl;
+	std::cout << "\n" << BACK_GRN"Round " << nr << "... FIGHT!"RST"  ";
+	std::cout << GRN"HP " << obj.getHP() << " EP " << obj.getEP() << " AD " << obj.getAD() << RST << std::endl;
 }
 
 int	main(void) {

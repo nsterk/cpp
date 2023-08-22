@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:41:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/25 17:45:12 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/01 17:35:34 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(void) {
 
 ScavTrap::ScavTrap(std::string name) {
 
-	std::cout << "ScavTrap constructor called for " << name << std::endl;
+	std::cout << "ScavTrap " << name << " was born" << std::endl;
 	setName(name);
 	setHP(100);
 	setEP(50);
@@ -33,7 +33,7 @@ ScavTrap::ScavTrap(ScavTrap const &original) {
 
 ScavTrap::~ScavTrap(void) {
 
-	std::cout << "Default ScavTrap destructor called" << std::endl;
+	std::cout << "ScavTrap " << getName() << " died" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(ScavTrap const &rhs) {
@@ -53,7 +53,15 @@ void	ScavTrap::guardGate(void) {
 void	ScavTrap::attack(const std::string &target) {
 
 	if (!getEP() || !getHP())
+	{
 		std::cout << "ScavTrap " << getName() << " tries to attack " << target << ", but is too weak" << std::endl;
-	else
-		std::cout << "ScavTrap " << getName() << " brutally attacks " << target << ", causing " << getAD() << " points of damage!" << std::endl;
+		return ;
+	}
+	std::cout << "ScavTrap " << getName() << " brutally attacks " << target << ", causing " << getAD() << " points of damage!" << std::endl;
+	setEP(getEP() - 1);
+	
+	// if (!getEP() || !getHP())
+	// 	std::cout << "ScavTrap " << getName() << " tries to attack " << target << ", but is too weak" << std::endl;
+	// else
+	// 	std::cout << "ScavTrap " << getName() << " brutally attacks " << target << ", causing " << getAD() << " points of damage!" << std::endl;
 }
