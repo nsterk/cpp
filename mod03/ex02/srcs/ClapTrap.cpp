@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/22 16:56:24 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 15:28:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ ClapTrap::ClapTrap(void) : _name("default"), _hitPts(HP), _energyPts(EP), _attac
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
-	std::cout << "ClapTrap " << name << " was born" << std::endl;
+	std::cout << "ClapTrap " << name << " spawned" << std::endl;
 };
 
 ClapTrap::ClapTrap(ClapTrap const &original) {
 
-	std::cout << "A ClapTrap was cloned" << std::endl;
 	*this = original;
+	setName(this->getName().append(" 2"));
+	std::cout << "ClapTrap " << this->getName() << " was cloned from ClapTrap " << original.getName() << std::endl;
 };
 
 ClapTrap::~ClapTrap(void) {
@@ -123,3 +124,14 @@ ClapTrap&	ClapTrap::operator=(ClapTrap const &rhs) {
 	this->_attackDmg = rhs._attackDmg;
 	return (*this);
 };
+
+std::ostream&	operator<<(std::ostream& out, ClapTrap const &d) {
+
+	out << MAGENTA"   ClapTrap " << d.getName() << RST << std::endl;
+	out << "--------------------" << std::endl;
+	out << "Hit points:     " << d.getHP() << std::endl;
+	out << "Energy points:  " << d.getEP() << std::endl;
+	out << "Attack damage:  " << d.getAD() << std::endl;
+	out << "--------------------";
+	return (out);
+}

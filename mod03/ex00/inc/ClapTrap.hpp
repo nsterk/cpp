@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/25 16:56:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 15:19:43 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ class ClapTrap {
 		unsigned int	_energyPts;
 		unsigned int	_attackDmg;	
 };
+
+std::ostream&	operator<<(std::ostream& out, ClapTrap const &d);
 
 #endif
