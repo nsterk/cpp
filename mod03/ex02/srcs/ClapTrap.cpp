@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/01 17:44:10 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/22 16:56:24 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap(void) : _name("default"), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
-	std::cout << "Default ClapTrap constructor called " << std::endl;
+	std::cout << "A ClapTrap spawned" << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
-	std::cout << "ClapTrap constructor called for " << name << std::endl;
+	std::cout << "ClapTrap " << name << " was born" << std::endl;
 };
 
 ClapTrap::ClapTrap(ClapTrap const &original) {
 
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "A ClapTrap was cloned" << std::endl;
 	*this = original;
 };
 
 ClapTrap::~ClapTrap(void) {
 
-	std::cout << "ClapTrap destructor called for " << _name << std::endl;
+	std::cout << "ClapTrap " << _name << " died" << std::endl;
 };
 
 /* Setter functions */
@@ -81,23 +81,27 @@ void	ClapTrap::attack(const std::string& target) {
  
 	if (!_energyPts || !_hitPts)
 	{
-		std::cout << "ClapTrap " << _name << " tries to attack " << target << ", but is too weak" << std::endl;
+		std::cout << _name << " tries to attack " << target << ", but is too weak" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << _name << " brutally attacks " << target << ", causing " << _attackDmg << " points of damage!" << std::endl;
+	std::cout << _name << " brutally attacks " << target << ", causing " << _attackDmg << " points of damage!" << std::endl;
 	this->_energyPts -= 1;
 };
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 
-	if (amount < this->_hitPts)
+	unsigned int	oldHP = this->_hitPts;
+	
+	if (amount < oldHP)
 		this->_hitPts -= amount;
 	else
 		this->_hitPts = 0;
-	std::cout << _name << " takes " << amount << " points of damage! OUCH!" << std::endl;
+	std::cout << _name << " takes up to " << amount << " points of damage and goes from " << oldHP << " to " << this->_hitPts << " HP" << std::endl;
 };
 
 void	ClapTrap::beRepaired(unsigned int amount) {
+
+	unsigned int	oldHP = this->_hitPts;
 
 	if (!_energyPts || !_hitPts)
 	{
@@ -106,10 +110,10 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	}
 	this->_hitPts += amount;
 	this->_energyPts -= 1;
-	std::cout << _name << " repairs itself! Bam! It has regained " << amount << " hit points!" << std::endl;
+	std::cout << _name << " repairs itself and goes from " << oldHP << " to " << this->_hitPts << " HP" << std::endl;
 };
 
-/** Operator overloads */
+/* Operator overloads */
 
 ClapTrap&	ClapTrap::operator=(ClapTrap const &rhs) {
 

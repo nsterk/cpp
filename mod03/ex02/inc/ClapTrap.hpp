@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/01 17:43:37 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/22 16:09:50 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include "colours.hpp"
 
 # define HP 10
 # define EP 10

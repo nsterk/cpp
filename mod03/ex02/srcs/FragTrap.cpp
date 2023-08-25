@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:51:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/13 14:35:15 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 14:21:55 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,36 @@
 
 FragTrap::FragTrap(void) {
 
-	std::cout << "Default FragTrap constructor called" << std::endl;
+	std::cout << "A FragTrap spawned" << std::endl;
 }
 
 FragTrap::~FragTrap(void) {
 
-	std::cout << "Default FragTrap destructor called" << std::endl;
+	std::cout << "A FragTrap died" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) {
 
-	std::cout << "FragTrap constructor called for " << name << std::endl;
+	std::cout << "FragTrap " << name << " was born" << std::endl;
 	setName(name);
-	setHitPts(100);
-	setEnergyPts(100);
-	setAttackDmg(30);
+	setHP(100);
+	setEP(100);
+	setAD(30);
 }
 
 FragTrap::FragTrap(FragTrap const &original) {
 
 	*this = original;
+	setName(this->getName().append(" 2"));
+	std::cout << "FragTrap " << this->getName() << " was cloned from FragTrap " << original.getName() << std::endl;
 };
 
 FragTrap&	FragTrap::operator=(FragTrap const &rhs) {
 
 	this->setName(rhs.getName());
-	this->setHitPts(rhs.getHitPts());
-	this->setEnergyPts(rhs.getEnergyPts());
-	this->setAttackDmg(rhs.getAttackDmg());
+	this->setHP(rhs.getHP());
+	this->setEP(rhs.getEP());
+	this->setAD(rhs.getAD());
 	return (*this);
 };
 

@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:41:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/18 14:06:59 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/22 16:35:20 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 ScavTrap::ScavTrap(void) {
 
-	std::cout << "Default ScavTrap constructor called" << std::endl;
+	std::cout << "A ScavTrap spawned" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) {
 
-	std::cout << "ScavTrap constructor called for " << name << std::endl;
+	std::cout << "ScavTrap " << name << " was born" << std::endl;
 	setName(name);
-	setHitPts(100);
-	setEnergyPts(50);
-	setAttackDmg(20);
+	setHP(100);
+	setEP(50);
+	setAD(20);
 }
 
 ScavTrap::ScavTrap(ScavTrap const &original) {
 
 	*this = original;
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "A ScavTrap was cloned" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void) {
 
-	std::cout << "Default ScavTrap destructor called" << std::endl;
+	std::cout << "A ScavTrap died" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(ScavTrap const &rhs) {
 
 	this->setName(rhs.getName());
-	this->setHitPts(rhs.getHitPts());
-	this->setEnergyPts(rhs.getEnergyPts());
-	this->setAttackDmg(rhs.getAttackDmg());
+	this->setHP(rhs.getHP());
+	this->setEP(rhs.getEP());
+	this->setAD(rhs.getAD());
 	return (*this);
 }
 
