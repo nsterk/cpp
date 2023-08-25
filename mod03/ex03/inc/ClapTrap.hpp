@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/05/06 15:57:12 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 18:42:32 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include "colours.hpp"
 
 # define HP 10
 # define EP 10
@@ -25,24 +26,27 @@ class ClapTrap {
 	public:
 
 		ClapTrap(void);
-		ClapTrap(const std::string& name);
-		~ClapTrap(void);
+		ClapTrap(std::string name);
+		ClapTrap(ClapTrap const &original);
+		virtual ~ClapTrap(void);
 
-		void	setName(const std::string& name);
-		void	setHitPts(unsigned int amount);
-		void	setEnergyPts(unsigned int amount);
-		void	setAttackDmg(unsigned int amount);
-		
+		void			setName(const std::string &name);
+		void			setHP(unsigned int amount);
+		void			setEP(unsigned int amount);
+		void			setAD(unsigned int amount);
+
 		std::string		getName(void) const;
-		unsigned int	getHitPts(void) const;
-		unsigned int	getEnergyPts(void) const;
-		unsigned int	getAttackDmg(void) const;
+		unsigned int	getHP(void) const;
+		unsigned int	getEP(void) const;
+		unsigned int	getAD(void) const;
 
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
 
-	protected:
+		ClapTrap&		operator=(ClapTrap const &rhs);
+		
+	private:
 
 		std::string		_name;
 		unsigned int	_hitPts;
@@ -50,5 +54,7 @@ class ClapTrap {
 		unsigned int	_attackDmg;
 		
 };
+
+std::ostream&	operator<<(std::ostream& out, ClapTrap const &d);
 
 #endif

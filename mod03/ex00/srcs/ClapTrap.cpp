@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 15:28:05 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 18:23:57 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 ClapTrap::ClapTrap(void) : _name("default"), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 	
-	std::cout << "A ClapTrap spawned" << std::endl;
+	std::cout << "A "L_GRN"ClapTrap"RST" spawned" << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
-	std::cout << "ClapTrap " << name << " spawned" << std::endl;
+	std::cout << L_GRN"ClapTrap " << name << RST" was born" << std::endl;
 };
 
 ClapTrap::ClapTrap(ClapTrap const &original) {
 
 	*this = original;
 	setName(this->getName().append(" 2"));
-	std::cout << "ClapTrap " << this->getName() << " was cloned from ClapTrap " << original.getName() << std::endl;
+	std::cout << L_GRN"ClapTrap " << this->getName() << RST" was "L_GRN"cloned "RST"from ClapTrap " << original.getName() << std::endl;
 };
 
 ClapTrap::~ClapTrap(void) {
 
-	std::cout << "ClapTrap " << _name << " died" << std::endl;
+	std::cout << PRETTY_RED"ClapTrap " << _name << RST" died" << std::endl;
 };
 
 /* Setter functions */

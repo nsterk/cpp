@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 23:07:11 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/05/06 16:05:22 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 18:45:04 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ class DiamondTrap: public ScavTrap, public FragTrap {
 	public:
 		DiamondTrap(void);
 		DiamondTrap(const std::string& name);
+		DiamondTrap(DiamondTrap const &original);
 		~DiamondTrap(void);
 
+		DiamondTrap&	operator=(DiamondTrap const &rhs);
+	
 	private:
 		std::string	_name;
 };

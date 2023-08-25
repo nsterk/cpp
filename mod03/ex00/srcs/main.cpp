@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/12 12:34:30 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 15:30:37 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 17:10:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,10 @@ int	main(void) {
 	beast.takeDamage(5);
 	beast.beRepaired(4);
 	std::cout << beast << std::endl;
+
+	{
+		ClapTrap	copy(beast);
+		std::cout << copy << std::endl;
+	}
 	return (0);
 }

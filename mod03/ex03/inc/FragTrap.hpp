@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:50:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/05/06 16:16:23 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 18:16:39 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap {
+class FragTrap: public ClapTrap {
 
 	public:
 		FragTrap(void);
-		FragTrap(const std::string& name);
+		FragTrap(std::string name);
+		FragTrap(FragTrap const &original);
 		~FragTrap(void);
-		
-		void	highFivesGuys(void);
-
-	protected:
-		const unsigned int	_hitPts;
-		const unsigned int	_attackDmg;
-		const unsigned int	_energyPts;
+	
+		FragTrap&	operator=(FragTrap const &rhs);
+		void		highFivesGuys(void);
 };
+
+std::ostream&	operator<<(std::ostream& out, FragTrap const &d);
 
 #endif

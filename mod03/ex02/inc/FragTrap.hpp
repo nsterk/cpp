@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:50:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/07/13 14:48:17 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 18:16:39 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ class FragTrap: public ClapTrap {
 		FragTrap&	operator=(FragTrap const &rhs);
 		void		highFivesGuys(void);
 };
+
+std::ostream&	operator<<(std::ostream& out, FragTrap const &d);
 
 #endif

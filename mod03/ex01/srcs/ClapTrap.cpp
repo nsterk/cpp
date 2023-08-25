@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/01 17:01:33 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 18:23:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 ClapTrap::ClapTrap(void) : _name("default"), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
-	std::cout << "Default ClapTrap constructor called " << std::endl;
+	std::cout << "A "L_GRN"ClapTrap"RST" spawned" << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP), _attackDmg(AD) {
 
-	std::cout << "ClapTrap constructor called for " << name << std::endl;
+	std::cout << "ClapTrap "L_GRN << name << RST" was born" << std::endl;
 };
 
 ClapTrap::ClapTrap(ClapTrap const &original) {
 
-	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = original;
+	setName(this->getName().append(" 2"));
+	std::cout << "ClapTrap "L_GRN << this->getName() << RST" was "L_GRN"cloned "RST"from ClapTrap " << original.getName() << std::endl;
 };
 
 ClapTrap::~ClapTrap(void) {
 
-	std::cout << "ClapTrap destructor called for " << _name << std::endl;
+	std::cout << "ClapTrap "PRETTY_RED << _name << RST" died" << std::endl;
 };
 
 /* Setter functions */
@@ -119,3 +120,14 @@ ClapTrap&	ClapTrap::operator=(ClapTrap const &rhs) {
 	this->_attackDmg = rhs._attackDmg;
 	return (*this);
 };
+
+std::ostream&	operator<<(std::ostream& out, ClapTrap const &d) {
+
+	out << MAGENTA"   ClapTrap " << d.getName() << RST << std::endl;
+	out << "--------------------" << std::endl;
+	out << "Hit points:     " << d.getHP() << std::endl;
+	out << "Energy points:  " << d.getEP() << std::endl;
+	out << "Attack damage:  " << d.getAD() << std::endl;
+	out << "--------------------";
+	return (out);
+}

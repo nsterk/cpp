@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:34:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/01 17:42:07 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 18:01:10 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ class ScavTrap: public ClapTrap {
 		void		guardGate(void);
 		void		attack(const std::string &target);
 };
+
+std::ostream&	operator<<(std::ostream& out, ScavTrap const &d);
 
 #endif
