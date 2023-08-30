@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:41:02 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 18:22:54 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 22:42:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@ ScavTrap::ScavTrap(void) {
 ScavTrap::ScavTrap(std::string name) {
 
 	std::cout << "ScavTrap "L_GRN << name << RST" was born" << std::endl;
-	setName(name);
-	setHP(100);
-	setEP(50);
-	setAD(20);
+	_name = name;
+	_hitPts = 100;
+	_energyPts = 50;
+	_attackDmg = 20;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &original) {
 
 	*this = original;
-	setName(this->getName().append(" 2"));
-	std::cout << "ScavTrap "L_GRN << this->getName() << RST" was "L_GRN"cloned "RST"from ScavTrap " << original.getName() << std::endl;
+	_name = (original._name + " 2");
+	std::cout << "ScavTrap "L_GRN << _name << RST" was "L_GRN"cloned "RST"from ScavTrap " << original._name << std::endl;
 }
 
 ScavTrap::~ScavTrap(void) {
 
-	std::cout << "ScavTrap "PRETTY_RED << getName() << RST" died" << std::endl;
+	std::cout << "ScavTrap "PRETTY_RED << _name << RST" died" << std::endl;
 }
 
 void	ScavTrap::guardGate(void) {
@@ -51,7 +51,7 @@ void	ScavTrap::attack(const std::string &target) {
 		return ;
 	}
 	std::cout << "ScavTrap " << getName() << " brutally attacks " << target << ", causing " << getAD() << " points of damage!" << std::endl;
-	setEP(getEP() - 1);
+	_energyPts--;
 }
 
 
@@ -59,10 +59,10 @@ void	ScavTrap::attack(const std::string &target) {
 
 ScavTrap&	ScavTrap::operator=(ScavTrap const &rhs) {
 
-	this->setName(rhs.getName());
-	this->setHP(rhs.getHP());
-	this->setEP(rhs.getEP());
-	this->setAD(rhs.getAD());
+	_name = rhs._name;
+	_hitPts = rhs._hitPts;
+	_energyPts = rhs._energyPts;
+	_attackDmg = rhs._attackDmg;
 	return (*this);
 }
 

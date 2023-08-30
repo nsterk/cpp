@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/05/05 19:32:13 by nsterk        ########   odam.nl          #
+#    Updated: 2023/08/25 21:02:53 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS		=	main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC			:=	c++
-FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
+FLAGS		:=	-Wall -Wextra -Werror -I$(INC_DIR)
 
 all:		$(NAME)
 

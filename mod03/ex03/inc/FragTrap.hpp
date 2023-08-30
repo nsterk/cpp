@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:50:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 18:16:39 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 20:43:29 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap {
+class FragTrap: virtual public ClapTrap {
 
 	public:
 		FragTrap(void);

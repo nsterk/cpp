@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:47:07 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 18:42:32 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 22:41:43 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,8 @@ class ClapTrap {
 		ClapTrap(ClapTrap const &original);
 		virtual ~ClapTrap(void);
 
-		void			setName(const std::string &name);
-		void			setHP(unsigned int amount);
-		void			setEP(unsigned int amount);
-		void			setAD(unsigned int amount);
-
 		std::string		getName(void) const;
-		unsigned int	getHP(void) const;
+		virtual unsigned int	getHP(void) const;
 		unsigned int	getEP(void) const;
 		unsigned int	getAD(void) const;
 
@@ -45,9 +40,9 @@ class ClapTrap {
 		void			beRepaired(unsigned int amount);
 
 		ClapTrap&		operator=(ClapTrap const &rhs);
-		
-	private:
-
+	
+	protected:
+	
 		std::string		_name;
 		unsigned int	_hitPts;
 		unsigned int	_energyPts;

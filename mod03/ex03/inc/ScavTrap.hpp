@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 20:34:03 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 18:13:39 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 20:43:37 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap {
+class ScavTrap: virtual public ClapTrap {
 
 	public:
 		ScavTrap(void);

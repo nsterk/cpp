@@ -6,30 +6,30 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/21 22:51:56 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 18:25:43 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 22:44:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) {
+FragTrap::FragTrap(void) : ClapTrap() {
 
 	std::cout << "A "L_GRN"FragTrap"RST" spawned" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) {
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 
 	std::cout << "FragTrap "L_GRN << name << RST" was born" << std::endl;
-	setName(name);
-	setHP(100);
-	setEP(100);
-	setAD(30);
+	_name = name;
+	_hitPts = 100;
+	_energyPts = 100;
+	_attackDmg = 30;
 }
 
-FragTrap::FragTrap(FragTrap const &original) {
+FragTrap::FragTrap(FragTrap const &original) : ClapTrap(original) {
 
 	*this = original;
-	setName(this->getName().append(" 2"));
+	_name = (original._name + " 2");
 	std::cout << "FragTrap "L_GRN << this->getName() << RST" was"L_GRN" cloned"RST" from FragTrap " << original.getName() << std::endl;
 };
 
@@ -47,10 +47,10 @@ void	FragTrap::highFivesGuys(void) {
 
 FragTrap&	FragTrap::operator=(FragTrap const &rhs) {
 
-	this->setName(rhs.getName());
-	this->setHP(rhs.getHP());
-	this->setEP(rhs.getEP());
-	this->setAD(rhs.getAD());
+	_name = rhs._name;
+	_hitPts = rhs._hitPts;
+	_energyPts = rhs._energyPts;
+	_attackDmg = rhs._attackDmg;
 	return (*this);
 };
 

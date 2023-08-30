@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/10 17:50:29 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/25 18:42:26 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/25 22:41:53 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(HP), _energyPts(EP),
 ClapTrap::ClapTrap(ClapTrap const &original) {
 
 	*this = original;
-	setName(this->getName().append(" 2"));
+	_name = (original._name + " 2");
 	std::cout << "ClapTrap "L_GRN << this->getName() << RST" was "L_GRN"cloned "RST"from ClapTrap " << original.getName() << std::endl;
 };
 
@@ -33,28 +33,6 @@ ClapTrap::~ClapTrap(void) {
 
 	std::cout << "ClapTrap "PRETTY_RED << _name << RST" died" << std::endl;
 };
-
-/* Setter functions */
-
-void	ClapTrap::setName(const std::string &name) {
-
-	_name = name;
-}
-
-void	ClapTrap::setHP(unsigned int amount) {
-
-	_hitPts = amount;
-}
-
-void	ClapTrap::setEP(unsigned int amount) {
-
-	_energyPts = amount;
-}
-
-void	ClapTrap::setAD(unsigned int amount) {
-
-	_attackDmg = amount;
-}
 
 /* Getter functions */
 
