@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:19:33 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/07 21:04:45 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/31 15:14:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ class Bureaucrat {
 			std::string	const	_name;
 			unsigned int		_grade;
 };
+
+std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj);
 
 #endif

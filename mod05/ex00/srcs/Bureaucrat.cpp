@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/07 21:03:52 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/31 15:14:43 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,8 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &rhs) {
 
 	this->_grade = rhs.getGrade();
 	return (*this);
+}
+
+std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj) {
+	
 }
