@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/08/31 14:13:36 by nsterk        ########   odam.nl          #
+#    Updated: 2023/08/04 15:32:29 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC			:=	c++
-FLAGS		:=	-Wall -Wextra -Werror -g -I$(INC_DIR)
+FLAGS		:=	-Wall -Wextra -std=c++98 -g -I$(INC_DIR)
+# FLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g -I$(INC_DIR)
 
 all:		$(NAME)
 

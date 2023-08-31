@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Brain.cpp                                          :+:    :+:            */
+/*   Cat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/07/27 17:09:09 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/30 19:30:11 by nsterk        ########   odam.nl         */
+/*   Created: 2023/07/21 13:17:01 by nsterk        #+#    #+#                 */
+/*   Updated: 2023/07/30 13:24:42 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_HPP
+# define CAT_HPP
+
+#include "Animal.hpp"
 #include "Brain.hpp"
 
-Brain::Brain(void) {
+class Cat : public Animal {
 
-	std::cout << "A "YELLOW"brain"RST" was created" << std::endl;
-}
+	public:
 
-Brain::Brain(Brain const &original) {
+		Cat(void);
+		Cat(Cat const &original);
+		Cat(std::string name);
+		virtual ~Cat(void);
 	
-	*this = original;
-	std::cout << "A"YELLOW" brain"RST" was cloned" << std::endl;
-}
+		Cat&	operator=(Cat const &rhs);
+		
+		void	makeSound(void) const;
+		Brain*	getBrain(void) const;
+		void	randomThought(void) const;
+	
+	private:
 
-Brain::~Brain(void) {
-	std::cout << "A "PRETTY_RED"brain"RST" died" << std::endl;
-}
+		Brain*	_brain;
+		void	ponderLife(void);
+};
 
-Brain&	Brain::operator=(Brain const &rhs) {
-
-	for (size_t i = 0; i < 100; i++)
-		this->ideas[i] = rhs.ideas[i];
-	return (*this);
-}
+#endif

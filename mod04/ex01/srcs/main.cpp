@@ -6,47 +6,43 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/21 12:52:40 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/08/04 16:14:05 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/08/30 19:43:31 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include <cstdlib>
 
 #define N 4
 
 void	testCopy(void);
-void	destructionChaning(void);
+void	functions(void);
+void	subject(void);
 
 int	main(void) {
 
-	/* Subject */
+	subject();
+	testCopy();
+	functions();
+	return (0);
+}
 
+void	subject(void) {
 	Animal *zoo[N];
 
-	std::cout << BACK_WHT"THE CREATION"RST << std::endl;
 	for (size_t i = 0; i < N; i++)
 	{
-		std::cout << U_WHT"\nAnimal nr " << i << RST"\n";
+		std::cout << std::endl;
 		if (i % 2)
 			zoo[i] = new Cat();
 		else
 			zoo[i] = new Dog();
 	}
-	std::cout << BACK_WHT"THE DESTRUCTION"RST << std::endl;
 	for (size_t i = 0; i < N; i++)
 	{
-		std::cout << U_WHT"\nAnimal nr " << i << RST"\n";
+		std::cout << std::endl;
 		delete zoo[i];
 	}
-
-	/* Construction / destruction chaining & member functions */
-	// destructionChaning();
-	
-	/* Demonstrates that copy constructor creates deep copy */
-	// testCopy();
-	return (0);
 }
 
 /**
@@ -58,24 +54,22 @@ int	main(void) {
 void	testCopy(void) {
 
 	const Cat	OG;
-
-	std::cout << BACK_GRN"Deep copy demonstration"RST << std::endl;
-
 	Cat Copycat(OG);
 	
-	std::cout << BACK_WHT"Before changing idea of original"RST<< std::endl;
+	std::cout << CYAN"\nBefore changing idea"RST<< std::endl;
 
-	std::cout << "og ideas[0]: " << OG.getBrain()->ideas[0] << std::endl;
+	std::cout << "OG ideas[0]:      " << OG.getBrain()->ideas[0] << std::endl;
 	std::cout << "copycat ideas[0]: " << Copycat.getBrain()->ideas[0] << std::endl;
 
-	std::cout << BACK_WHT"After changing idea of original"RST<< std::endl;
 	OG.getBrain()->ideas[0] = "I changed my mind";
+	std::cout << CYAN"\nAfter changing idea"RST<< std::endl;
 
-	std::cout << "og ideas[0]: " << OG.getBrain()->ideas[0] << std::endl;
-	std::cout << "copycat ideas[0]: " << Copycat.getBrain()->ideas[0] << std::endl;
+	std::cout << "OG ideas[0]:      " << OG.getBrain()->ideas[0] << std::endl;
+	std::cout << "copycat ideas[0]: " << Copycat.getBrain()->ideas[0] << std::endl << std::endl;
 }
 
-void	destructionChaning(void)
+/* Member functions */
+void	functions(void)
 {
 	const Animal	*Skeletor = new Animal();
 	const Cat	*Momo = new Cat("Momo");
@@ -89,11 +83,12 @@ void	destructionChaning(void)
 	Fikkie->makeSound();	
 
 	/* I added a function that fills the brains with random thoughts. Run this to see */
-	// for (int i = 0; i < 10; i++)
-	// {
-	// 	Fikkie->randomThought();
-	// 	Momo->randomThought();
-	// }
+	
+	for (int i = 0; i < 10; i++)
+	{
+		Fikkie->randomThought();
+		Momo->randomThought();
+	}
 	delete Skeletor;
 	delete Fikkie;
 	delete Momo;

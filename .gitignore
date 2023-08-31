@@ -2,3 +2,4 @@
 RefMake
 *.o
 /objs
+mod03/ex03/*
