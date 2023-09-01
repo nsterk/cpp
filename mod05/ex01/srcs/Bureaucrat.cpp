@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/01 18:33:01 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/01 18:36:27 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ class	Bureaucrat::GradeTooHighException : public std::exception {
 				virtual const char* what() const throw() {
 					return ("Grade too high");
 				}
-		};
+};
 		
 class	Bureaucrat::GradeTooLowException : public std::exception {
-	public:
-		virtual const char* what() const throw() {
-			return ("Grade too low");
-		}
+			public:
+				virtual const char* what() const throw() {
+					return ("Grade too low");
+				}
 };
 
 Bureaucrat::Bureaucrat(void) {
@@ -52,34 +52,28 @@ Bureaucrat::~Bureaucrat(void){
 }
 	
 std::string Bureaucrat::getName(void) const {
-
-	return (this->_name);
+	return (_name);
 }
 
 unsigned int	Bureaucrat::getGrade(void) const {
-
-	return (this->_grade);
-}
-
-void	Bureaucrat::setGrade(unsigned int grade) {
-	_grade = grade;
+	return (_grade);
 }
 
 void	Bureaucrat::incrementGrade(void) {
-	this->_grade--;
+	_grade--;
 	if (_grade < 1)
 		throw GradeTooHighException();
 }
 
 void	Bureaucrat::decrementGrade(void) {
-	this->_grade++;
+	_grade++;
 	if (_grade > 150)
 		throw GradeTooLowException();
 }
 
 Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &rhs) {
 
-	this->_grade = rhs.getGrade();
+	_grade = rhs.getGrade();
 	return (*this);
 }
 

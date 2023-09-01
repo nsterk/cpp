@@ -6,12 +6,12 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/01 18:11:41 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/01 18:51:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void	instantiateTooHigh(void) {
 
@@ -66,6 +66,7 @@ int main(void)
 	// decrement();
 	// increment();
 	
-	// Bureaucrat b("No catch", 0);
+	Form a("Admission", 10, 10);
+	std::cout << a << std::endl;
 	return (0);
 }
