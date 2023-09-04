@@ -1,52 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.hpp                                           :+:    :+:            */
+/*   AForm.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:39:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/03 18:10:20 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/04 19:06:02 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <string>
 #include <iostream>
 #include "colours.hpp"
-// #include "Bureaucrat.hpp"
+
 class Bureaucrat;
 
-class Form {
+class AForm {
 
 	public:
-		Form(void);
-		Form(std::string name, unsigned int sign, unsigned int exec);
-		Form(Form const &original);
-		~Form(void);
-
-		/** Getters */
-		std::string		getName(void) const;
-		unsigned int	getSignGrade(void) const;
-		unsigned int	getExecGrade(void) const;
-		bool			getSignature(void) const;
-
-		/** Methods */
-		void	beSigned(Bureaucrat &b);
+		AForm(void);
+		AForm(std::string name, unsigned int sign, unsigned int exec);
+		AForm(AForm const &original);
+		~AForm(void);
 
 		/** Exceptions */
 		class GradeTooHighException;
 		class GradeTooLowException;
-	
+		class ExecutionException;
+		
+		/** Getters */
+		virtual std::string	getName(void) const;
+		unsigned int		getSignGrade(void) const;
+		unsigned int		getExecGrade(void) const;
+		bool				getSignature(void) const;
+		std::string			getTarget(void) const;
+		
+		/** Setters */
+		void				setTarget(const std::string &target);
+
+		/** Methods */
+		void				beSigned(Bureaucrat &b);
+		void				execute(Bureaucrat const &executor);
+		virtual void		action(void) = 0;
+		
+
 	private:
 		std::string const	_name;
 		unsigned int const	_signGrade;
 		unsigned int const	_execGrade;
 		bool				_signed;
+		std::string			_target;
 };
 
-std::ostream&	operator<<(std::ostream& out, Form const &obj);
+std::ostream&	operator<<(std::ostream& out, AForm const &obj);
 
 #endif

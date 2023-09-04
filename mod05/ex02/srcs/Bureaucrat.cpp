@@ -6,25 +6,25 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/03 01:32:58 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/04 13:48:30 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "colours.hpp"
 
 class	Bureaucrat::GradeTooHighException : public std::exception {
 			public:
 				virtual const char* what() const throw() {
-					return ("Grade too high");
+					return ("Bureaucrat exception: grade too high");
 				}
 };
 		
 class	Bureaucrat::GradeTooLowException : public std::exception {
 			public:
 				virtual const char* what() const throw() {
-					return ("Grade too low");
+					return ("Bureaucrat exception: grade too low");
 				}
 };
 
@@ -70,11 +70,12 @@ void			Bureaucrat::setGrade(unsigned int grade) {
 }
 
 
-void			Bureaucrat::signForm(Form const &form) {
+void			Bureaucrat::signForm(AForm const &form) {
+	std::cout << BLUE2"" << _name << RST" ";
 	if (this->_grade > form.getSignGrade())
-		std::cout << _name << " couldn't sign " << form.getName() << " form because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
+		std::cout << "couldn't sign "LILA << form.getName() << RST" form because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
 	else
-		std::cout << _name << " signed " << form.getName() << " form" << std::endl;
+		std::cout << "signed "LILA << form.getName() << RST" form" << std::endl;
 }
 
 void	Bureaucrat::incrementGrade(void) {
@@ -97,6 +98,6 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &rhs) {
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj) {
 	
-	out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	out << ""BLUE2 << obj.getName() << RST", bureaucrat grade " << obj.getGrade();
 	return (out);
 }

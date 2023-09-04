@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:39:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/03 18:10:20 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/04 13:38:34 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <string>
 #include <iostream>
 #include "colours.hpp"
-// #include "Bureaucrat.hpp"
 class Bureaucrat;
 
 class Form {

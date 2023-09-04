@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/09/03 00:03:09 by nsterk        ########   odam.nl          #
+#    Updated: 2023/09/04 17:50:56 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS_DIR	:=	srcs
 OBJ_DIR		:=	objs
 VPATH		:=	$(subst $(space),:,$(shell find srcs -type d))
 
-SRCS		=	main.cpp Bureaucrat.cpp Form.cpp
+SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC			:=	c++
