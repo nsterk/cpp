@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 19:09:31 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/04 21:47:17 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	doRobotomy(Bureaucrat &b) {
 	}
 	b.setGrade(30);
 	try {
+		form.execute(b);
+		form.execute(b);
 		form.execute(b);
 	}
 	catch (std::exception &e) {

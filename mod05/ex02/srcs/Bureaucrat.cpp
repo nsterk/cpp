@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 13:48:30 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/04 21:56:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void			Bureaucrat::setGrade(unsigned int grade) {
 void			Bureaucrat::signForm(AForm const &form) {
 	std::cout << BLUE2"" << _name << RST" ";
 	if (this->_grade > form.getSignGrade())
-		std::cout << "couldn't sign "LILA << form.getName() << RST" form because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
+		std::cout << "couldn't sign "LILA << form.getName() << RST" because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
 	else
-		std::cout << "signed "LILA << form.getName() << RST" form" << std::endl;
+		std::cout << "signed "LILA << form.getName() << RST"" << std::endl;
 }
 
 void	Bureaucrat::incrementGrade(void) {

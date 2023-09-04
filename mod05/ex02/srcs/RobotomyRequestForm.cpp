@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 17:30:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 17:58:36 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/04 21:55:33 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ std::string	RobotomyRequestForm::getName(void) const {
 
 void	RobotomyRequestForm::action(void) {
 
-	std::cout << "fucking hate this shit, succesfully" << std::endl;
+	if ((std::rand() % 2))
+		std::cout << "fucking hate this shit, succesfully" << std::endl;
+	else
+		std::cout << "fucking hate this shit, unsuccessfully" << std::endl;
 }
