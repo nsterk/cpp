@@ -6,7 +6,7 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/09/04 17:50:56 by nsterk        ########   odam.nl          #
+#    Updated: 2023/09/05 15:28:18 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ $(NAME):	$(OBJS)
 
 $(OBJ_DIR)/%.o: $(notdir %.cpp)
 	@ mkdir -p $(OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -o $@
+	@ $(CC) $(FLAGS) -c $< -o $@
 
 run:	all
 	@ ./$(NAME)

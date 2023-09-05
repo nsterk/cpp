@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 14:15:17 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 18:00:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/05 13:07:09 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ std::string	ShrubberyCreationForm::getName(void) const {
 	return ("Shrubbery Creation Form");
 }
 
-void	ShrubberyCreationForm::action(void) {
+void	ShrubberyCreationForm::action(void) const {
 
 	std::ofstream	ofs;
 	std::string	outfile = getTarget() + "_shrubbery";

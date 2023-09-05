@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 21:56:12 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/05 13:05:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ Bureaucrat::~Bureaucrat(void){
 	std::cout << "Bureaucrat "PRETTY_RED << _name << RST" destroyed" << std::endl;
 }
 	
-std::string Bureaucrat::getName(void) const {
+std::string 	Bureaucrat::getName(void) const {
 	return (_name);
 }
 
@@ -69,6 +69,17 @@ void			Bureaucrat::setGrade(unsigned int grade) {
 	std::cout << _name << "'s grade set to " << _grade << std::endl;
 }
 
+void			Bureaucrat::incrementGrade(void) {
+	_grade--;
+	if (_grade < 1)
+		throw GradeTooHighException();
+}
+
+void			Bureaucrat::decrementGrade(void) {
+	_grade++;
+	if (_grade > 150)
+		throw GradeTooLowException();
+}
 
 void			Bureaucrat::signForm(AForm const &form) {
 	std::cout << BLUE2"" << _name << RST" ";
@@ -78,17 +89,18 @@ void			Bureaucrat::signForm(AForm const &form) {
 		std::cout << "signed "LILA << form.getName() << RST"" << std::endl;
 }
 
-void	Bureaucrat::incrementGrade(void) {
-	_grade--;
-	if (_grade < 1)
-		throw GradeTooHighException();
+void			Bureaucrat::executeForm(AForm const &form) const {
+	try {
+		form.execute(*this);
+	}
+	catch (std::exception &e) {
+		std::cout << _name << " tried to execute " << form.getName() << ", but failed" << std::endl;
+		return ;
+	}
+	std::cout << _name << " executed " << form.getName() << std::endl;
 }
 
-void	Bureaucrat::decrementGrade(void) {
-	_grade++;
-	if (_grade > 150)
-		throw GradeTooLowException();
-}
+/** Operator overloads */
 
 Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &rhs) {
 

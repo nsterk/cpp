@@ -6,11 +6,11 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 21:47:17 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/05 14:32:19 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+// #include <iostream>
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -58,26 +58,20 @@ void	doRobotomy(Bureaucrat &b) {
 	}
 	std::cout << form << std::endl;
 	try {
-		form.execute(b);
+		b.executeForm(form);
 	}
 	catch (std::exception &e) {
 		std::cerr << e.what() << '\n';
 	}
 	b.setGrade(30);
-	try {
-		form.execute(b);
-		form.execute(b);
-		form.execute(b);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << '\n';
-	}
+	b.executeForm(form);
 }
 
 void	doPardon(Bureaucrat &b) {
 
 	PresidentialPardonForm form("Kanye");
-
+	PresidentialPardonForm copy(form);
+	
 	try {
 		form.beSigned(b);
 	}
@@ -85,15 +79,16 @@ void	doPardon(Bureaucrat &b) {
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << form << std::endl;
+	std::cout << copy << std::endl;
 	form.execute(b);
 }
 
 int main(void)
 {
-	Bureaucrat momo("Momo", 150);
+	Bureaucrat momo("Momo", 5);
 
 	// doShrubbery(momo);
-	doRobotomy(momo);
-	// doPardon(momo);
+	// doRobotomy(momo);
+	doPardon(momo);
 	return (0);
 }

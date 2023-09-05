@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:19:33 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 13:48:04 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/05 13:04:44 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ class Bureaucrat {
 		unsigned int	getGrade(void) const;
 		void			setGrade(unsigned int grade);
 
-		void			signForm(AForm const &form);
 		void			incrementGrade(void);
 		void			decrementGrade(void);
+		void			signForm(AForm const &form);
+		void			executeForm(AForm const &form) const;
 
 		Bureaucrat&	operator=(Bureaucrat const &rhs);
 

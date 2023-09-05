@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:39:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 19:06:02 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/05 15:43:10 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ class AForm {
 
 		/** Methods */
 		void				beSigned(Bureaucrat &b);
-		void				execute(Bureaucrat const &executor);
-		virtual void		action(void) = 0;
+		void				execute(Bureaucrat const &executor) const;
+		virtual void		action(void) const = 0;
 		
 
 	private:
@@ -54,6 +54,10 @@ class AForm {
 		unsigned int const	_execGrade;
 		bool				_signed;
 		std::string			_target;
+		
+		/** Useless operator overload. */
+		AForm&	operator=(AForm const &rhs);
+		
 };
 
 std::ostream&	operator<<(std::ostream& out, AForm const &obj);

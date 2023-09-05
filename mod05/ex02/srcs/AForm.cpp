@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:48:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 19:06:25 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/05 15:44:06 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ AForm::AForm(std::string name, unsigned int sign, unsigned int exec) : _name(nam
 	std::cout << ""GRN << _name << RST" constructed" << std::endl;
 }
 
-AForm::AForm(const AForm &original) : _name(original.getName()), _signGrade(original.getSignGrade()), _execGrade(original.getExecGrade()), _signed(false) {
-	std::cout << "copy constructor called" << std::endl;
+AForm::AForm(AForm const &original) : _name(original.getName()), _signGrade(original.getSignGrade()), _execGrade(original.getExecGrade()), _signed(false), _target(original.getTarget()) {
+	std::cout << ""L_GRN << _name << RST" copied" << std::endl;
 }
 
 AForm::~AForm(void) {
@@ -94,7 +94,7 @@ void			AForm::beSigned(Bureaucrat &b) {
 		_signed = true;
 }
 
-void			AForm::execute(Bureaucrat const &executor) {
+void			AForm::execute(Bureaucrat const &executor) const {
 	if (executor.getGrade() > _execGrade || _signed == false)
 		throw ExecutionException();
 	else

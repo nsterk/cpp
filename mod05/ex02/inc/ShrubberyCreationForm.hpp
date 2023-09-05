@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 13:50:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 17:40:52 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/05 13:06:45 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm : public AForm {
 		~ShrubberyCreationForm(void);
 
 		std::string	getName(void) const;
-		void		action(void);
+		void		action(void) const;
 };
 
 #endif
