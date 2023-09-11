@@ -6,12 +6,14 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/01 18:33:01 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/11 16:05:27 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "colours.hpp"
+
+/** Exception classes */
 
 class	Bureaucrat::GradeTooHighException : public std::exception {
 			public:
@@ -27,10 +29,9 @@ class	Bureaucrat::GradeTooLowException : public std::exception {
 		}
 };
 
-Bureaucrat::Bureaucrat(void) {
-	
-	std::cout << "Default bureaucrat constructed" << std::endl;
-}
+/** Constructors and destructor */
+
+Bureaucrat::Bureaucrat(void) {}
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _grade(grade) {
 
@@ -41,7 +42,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _gra
 	std::cout << "Bureaucrat "GRN << name << RST" constructed" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &original) : _name(original.getName()), _grade(original.getGrade()){
+Bureaucrat::Bureaucrat(Bureaucrat const &original) : _name(original.getName()), _grade(original.getGrade()) {
 
 	std::cout << "copy constructor called" << std::endl;
 }
@@ -50,7 +51,9 @@ Bureaucrat::~Bureaucrat(void){
 
 	std::cout << "Bureaucrat "PRETTY_RED << _name << RST" destroyed" << std::endl;
 }
-	
+
+/** Getters and setters */
+
 std::string Bureaucrat::getName(void) const {
 
 	return (this->_name);
@@ -65,6 +68,8 @@ void	Bureaucrat::setGrade(unsigned int grade) {
 	_grade = grade;
 }
 
+/** Member functions */
+
 void	Bureaucrat::incrementGrade(void) {
 	this->_grade--;
 	if (_grade < 1)
@@ -77,11 +82,7 @@ void	Bureaucrat::decrementGrade(void) {
 		throw GradeTooLowException();
 }
 
-Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &rhs) {
-
-	this->_grade = rhs.getGrade();
-	return (*this);
-}
+/** Operator overloads */
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj) {
 	

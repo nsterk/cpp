@@ -6,11 +6,10 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/01 18:11:41 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/11 15:58:25 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 void	instantiateTooHigh(void) {
@@ -61,7 +60,7 @@ void	increment(void) {
 
 int main(void)
 {
-	// instantiateTooHigh();
+	instantiateTooHigh();
 	// instantiateTooLow();
 	// decrement();
 	// increment();

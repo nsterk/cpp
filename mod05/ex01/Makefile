@@ -6,11 +6,11 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/09/03 00:03:09 by nsterk        ########   odam.nl          #
+#    Updated: 2023/09/11 16:06:18 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Bureaucrat
+NAME		:=	Form
 
 INC_DIR		:=	inc
 SRCS_DIR	:=	srcs
@@ -26,11 +26,11 @@ FLAGS		:=	-Wall -Wextra -Werror -g -I$(INC_DIR)
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	$(CC) $(OBJS) $(FLAGS) -o $(NAME)
+	@ $(CC) $(OBJS) $(FLAGS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(notdir %.cpp)
 	@ mkdir -p $(OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -o $@
+	@ $(CC) $(FLAGS) -c $< -o $@
 
 run:	all
 	@ ./$(NAME)

@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:48:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 13:44:15 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/11 17:06:31 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ class	Form::GradeTooLowException : public std::exception {
 		
 /* Constructors & destructor */
 
-Form::Form(void) : _name("Default form"), _signGrade(150), _execGrade(150), _signed(false) {
-	std::cout << "Default form constructor called" << std::endl;
-}
+// Form::Form(void) {}
 
 Form::Form(std::string name, unsigned int sign, unsigned int exec) : _name(name), _signGrade(sign), _execGrade(exec), _signed(false) {
+
 	if (_signGrade > 150)
 		throw GradeTooLowException();
 	if (_signGrade < 1) {
@@ -70,9 +69,10 @@ bool			Form::getSignature(void) const {
 	return (_signed);
 }
 
-/* Methods */
+/* Member methods */
 
 void	Form::beSigned(Bureaucrat &b) {
+
 	b.signForm(*this);
 	if (b.getGrade() > _signGrade)
 		throw GradeTooLowException();
