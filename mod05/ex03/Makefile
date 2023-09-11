@@ -6,11 +6,11 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/09/05 17:08:59 by nsterk        ########   odam.nl          #
+#    Updated: 2023/09/11 15:20:55 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Bureaucrat
+NAME		:=	Intern
 
 INC_DIR		:=	inc
 SRCS_DIR	:=	srcs
