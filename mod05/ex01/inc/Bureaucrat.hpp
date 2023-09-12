@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:19:33 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/11 16:02:10 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 14:43:25 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ class Bureaucrat {
 		void			incrementGrade(void);
 		void			decrementGrade(void);
 
+		Bureaucrat&		operator=(Bureaucrat const &rhs);
+		
 	private:
 		std::string	const	_name;
 		unsigned int		_grade;
-		Bureaucrat&	operator=(Bureaucrat const &rhs);
 };
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj);

@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:48:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/05 15:44:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 15:10:18 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "colours.hpp"
 
 /** Exception handling */
 
@@ -60,7 +61,7 @@ AForm::~AForm(void) {
 
 /* Getters */
 
-std::string	AForm::getName(void) const {
+std::string		AForm::getName(void) const {
 	return (_name);
 }
 

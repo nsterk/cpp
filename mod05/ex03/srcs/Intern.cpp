@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/07 13:15:55 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/11 15:34:09 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 17:50:38 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "colours.hpp"
 #include <algorithm>
 
 Intern::Intern(void) {
@@ -23,23 +24,6 @@ Intern::Intern(void) {
 Intern::~Intern(void) {
 	std::cout << PRETTY_RED"Intern"RST" destroyed" << std::endl;
 }
-
-// AForm*	Intern::makeForm(std::string name, std::string target) {
-
-// 	std::transform(name.begin(), name.end(), name.begin(), tolower);
-// 	if (!name.compare("shrubbery creation"))
-// 	{
-// 		std::cout << "Intern creates " << name << " form" << std::endl;
-// 		return (new ShrubberyCreationForm(target));
-// 	}
-// 	if (!name.compare("robotomy request"))
-// 	{
-// 		std::cout << "Intern creates " << name << " form" << std::endl;
-// 		return (new RobotomyRequestForm(target));
-// 	}
-// 	else if (!name.compare("presidential pardon"))
-// 		return (new PresidentialPardonForm(target));
-// }
 
 AForm*	Intern::makeForm(std::string name, std::string target) {
 

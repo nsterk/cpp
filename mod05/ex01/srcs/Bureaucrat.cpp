@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/11 16:07:54 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 14:44:37 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	Bureaucrat::GradeTooLowException : public std::exception {
 
 /** Constructors and destructor */
 
-Bureaucrat::Bureaucrat(void) {}
+Bureaucrat::Bureaucrat(void) : _name("default") {}
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _grade(grade) {
 
@@ -45,7 +45,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _gra
 
 Bureaucrat::Bureaucrat(Bureaucrat const &original) : _name(original.getName()), _grade(original.getGrade()) {
 
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << GRN"copy"RST" constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void){
@@ -77,9 +77,9 @@ void			Bureaucrat::setGrade(unsigned int grade) {
 void			Bureaucrat::signForm(Form const &form) {
 	std::cout << BLUE2"" << _name << RST" ";
 	if (this->_grade > form.getSignGrade())
-		std::cout << "couldn't sign "LILA << form.getName() << RST" form because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
+		std::cout << "couldn't sign " << form.getName() << " form because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
 	else
-		std::cout << "signed "LILA << form.getName() << RST" form" << std::endl;
+		std::cout << "signed " << form.getName() << " form" << std::endl;
 }
 
 void	Bureaucrat::incrementGrade(void) {
@@ -95,6 +95,12 @@ void	Bureaucrat::decrementGrade(void) {
 }
 
 /** Operator overloads */
+
+Bureaucrat&		Bureaucrat::operator=(Bureaucrat const &rhs) {
+
+	_grade = rhs.getGrade();
+	return (*this);
+}
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj) {
 	

@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:39:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/11 14:31:30 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 14:53:03 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <string>
 #include <iostream>
-#include "colours.hpp"
 
 class Bureaucrat;
 

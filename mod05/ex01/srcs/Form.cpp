@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:48:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/11 17:06:31 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 14:40:28 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include "colours.hpp"
 
 /** Exception handling */
 
@@ -31,7 +32,7 @@ class	Form::GradeTooLowException : public std::exception {
 		
 /* Constructors & destructor */
 
-// Form::Form(void) {}
+Form::Form(void) : _name("default"), _signGrade(150), _execGrade(150), _signed(false) {}
 
 Form::Form(std::string name, unsigned int sign, unsigned int exec) : _name(name), _signGrade(sign), _execGrade(exec), _signed(false) {
 

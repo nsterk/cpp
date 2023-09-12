@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/05 14:32:19 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 14:55:23 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include <iostream>
 #include "Bureaucrat.hpp"
+#include "colours.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -81,6 +82,8 @@ void	doPardon(Bureaucrat &b) {
 	std::cout << form << std::endl;
 	std::cout << copy << std::endl;
 	form.execute(b);
+	copy.beSigned(b);
+	copy.execute(b);
 }
 
 int main(void)
