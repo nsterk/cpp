@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/12 14:44:37 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:06:48 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _gra
 		throw GradeTooLowException();
 	if (grade < 1)
 		throw GradeTooHighException();
-	std::cout << "Bureaucrat "GRN << name << RST" constructed" << std::endl;
+	std::cout << "Bureaucrat " GRN << name << RST " constructed" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &original) : _name(original.getName()), _grade(original.getGrade()) {
 
-	std::cout << GRN"copy"RST" constructor called" << std::endl;
+	std::cout << GRN "copy" RST " constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void){
 
-	std::cout << "Bureaucrat "PRETTY_RED << _name << RST" destroyed" << std::endl;
+	std::cout << "Bureaucrat " PRETTY_RED << _name << RST " destroyed" << std::endl;
 }
 
 /** Getters and setters */
@@ -75,7 +75,7 @@ void			Bureaucrat::setGrade(unsigned int grade) {
 /** Member functions */
 
 void			Bureaucrat::signForm(Form const &form) {
-	std::cout << BLUE2"" << _name << RST" ";
+	std::cout << BLUE2 << _name << RST;
 	if (this->_grade > form.getSignGrade())
 		std::cout << "couldn't sign " << form.getName() << " form because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
 	else

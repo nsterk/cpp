@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/12 16:42:29 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:18:13 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _gra
 		throw GradeTooLowException();
 	if (grade < 1)
 		throw GradeTooHighException();
-	std::cout << "Bureaucrat "GRN << name << RST" constructed" << std::endl;
+	std::cout << "Bureaucrat " GRN << name << RST " constructed" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &original) : _name(original.getName()), _grade(original.getGrade()) {
@@ -49,7 +49,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &original) : _name(original.getName()), 
 
 Bureaucrat::~Bureaucrat(void){
 
-	std::cout << "Bureaucrat "PRETTY_RED << _name << RST" destroyed" << std::endl;
+	std::cout << "Bureaucrat " PRETTY_RED << _name << RST " destroyed" << std::endl;
 }
 
 /** Getters and setters */
@@ -65,18 +65,25 @@ unsigned int	Bureaucrat::getGrade(void) const {
 }
 
 void	Bureaucrat::setGrade(unsigned int grade) {
+
+	if (_grade < 1)
+		throw GradeTooHighException();
+	if (_grade > 150)
+		throw GradeTooLowException();
 	_grade = grade;
-} // check exception
+}
 
 /** Member functions */
 
 void	Bureaucrat::incrementGrade(void) {
+
 	_grade--;
 	if (_grade < 1)
 		throw GradeTooHighException();
 }
 
 void	Bureaucrat::decrementGrade(void) {
+
 	_grade++;
 	if (_grade > 150)
 		throw GradeTooLowException();
@@ -92,6 +99,6 @@ Bureaucrat&		Bureaucrat::operator=(Bureaucrat const &rhs) {
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj) {
 	
-	out << ""BLUE2 << obj.getName() << RST", bureaucrat grade " << obj.getGrade();
+	out << BLUE2 << obj.getName() << RST ", bureaucrat grade " << obj.getGrade();
 	return (out);
 }

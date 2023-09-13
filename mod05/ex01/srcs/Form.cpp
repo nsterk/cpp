@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:48:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/12 14:40:28 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:09:03 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Form::Form(std::string name, unsigned int sign, unsigned int exec) : _name(name)
 	if (_signGrade < 1) {
 		throw GradeTooHighException();
 	}
-	std::cout << "Form "GRN << _name << RST" constructed" << std::endl;
+	std::cout << "Form " GRN << _name << RST " constructed" << std::endl;
 }
 
 Form::Form(const Form &original) : _name(original.getName()), _signGrade(original.getSignGrade()), _execGrade(original.getExecGrade()), _signed(false) {
@@ -49,7 +49,7 @@ Form::Form(const Form &original) : _name(original.getName()), _signGrade(origina
 }
 
 Form::~Form(void) {
-	std::cout << PRETTY_RED"Form"RST" destroyed" << std::endl;
+	std::cout << PRETTY_RED "Form" RST " destroyed" << std::endl;
 }
 
 /* Getters */
@@ -87,9 +87,9 @@ std::ostream&	operator<<(std::ostream& out, Form const &obj) {
 
 	std::string status;
 	if (!obj.getSignature())
-		status = "Unsigned form \""LILA;
+		status = "Unsigned form \"" LILA;
 	else
-		status = "Signed form \""LILA;
-	out << status << obj.getName() << RST"\", sign grade: " << obj.getSignGrade() << ", execution grade: " << obj.getExecGrade();
+		status = "Signed form \"" LILA;
+	out << status << obj.getName() << RST "\", sign grade: " << obj.getSignGrade() << ", execution grade: " << obj.getExecGrade();
 	return (out);
 }

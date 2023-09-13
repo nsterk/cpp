@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/07 13:15:55 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/12 17:50:38 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:02:31 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 #include <algorithm>
 
 Intern::Intern(void) {
-	std::cout << GRN"Intern"RST" constructed" << std::endl;
+	std::cout << GRN "Intern" RST " constructed" << std::endl;
 }
 
 Intern::~Intern(void) {
-	std::cout << PRETTY_RED"Intern"RST" destroyed" << std::endl;
+	std::cout << PRETTY_RED "Intern" RST " destroyed" << std::endl;
 }
 
 AForm*	Intern::makeForm(std::string name, std::string target) {
@@ -40,7 +40,7 @@ AForm*	Intern::makeForm(std::string name, std::string target) {
 		form = new PresidentialPardonForm(target);
 	else
 	{
-		std::cout << B_RED"Error: form requested (" << tmp << ") does not exist"RST << std::endl;
+		std::cout << B_RED "Error: form requested (" << tmp << ") does not exist" RST << std::endl;
 		return (NULL);
 	}
 	std::cout << "Intern creates " << name << " form" << std::endl;
