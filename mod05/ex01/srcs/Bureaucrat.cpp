@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/13 15:06:48 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/18 17:25:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ Bureaucrat&		Bureaucrat::operator=(Bureaucrat const &rhs) {
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj) {
 	
-	out << ""BLUE2 << obj.getName() << RST", bureaucrat grade " << obj.getGrade();
+	out << BLUE2 << obj.getName() << RST ", bureaucrat grade " << obj.getGrade();
 	return (out);
 }

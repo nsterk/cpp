@@ -6,20 +6,22 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/12 14:55:23 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/18 17:20:37 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <iostream>
 #include "Bureaucrat.hpp"
 #include "colours.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+void	doCopying(Bureaucrat &b);
+
 void	doShrubbery(Bureaucrat &b) {
 
 	ShrubberyCreationForm form("codam");
+
 	std::cout << form << std::endl;
 	try {
 		form.beSigned(b);
@@ -27,32 +29,9 @@ void	doShrubbery(Bureaucrat &b) {
 	catch (std::exception &e) {
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << form << std::endl;
-	b.setGrade(1);
+	b.setGrade(144);
 	try {
 	form.beSigned(b);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << form << std::endl;
-	form.action();
-}
-
-void	doRobotomy(Bureaucrat &b) {
-
-	RobotomyRequestForm form("Kanye");
-
-	std::cout << form << std::endl;
-	try {
-		form.beSigned(b);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << '\n';
-	}
-	b.setGrade(70);
-	try {
-		form.beSigned(b);
 	}
 	catch (std::exception &e) {
 		std::cerr << e.what() << '\n';
@@ -64,13 +43,67 @@ void	doRobotomy(Bureaucrat &b) {
 	catch (std::exception &e) {
 		std::cerr << e.what() << '\n';
 	}
-	b.setGrade(30);
-	b.executeForm(form);
+	b.setGrade(137);
+	try {
+		b.executeForm(form);
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << '\n';
+	}
+}
+
+void	doRobotomy(Bureaucrat &b) {
+
+	RobotomyRequestForm form("Kanye");
+
+	b.setGrade(1);
+	std::cout << form << std::endl;
+	try {
+		form.beSigned(b);
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << '\n';
+	}
+	try {
+		b.executeForm(form);
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << '\n';
+	}
 }
 
 void	doPardon(Bureaucrat &b) {
 
-	PresidentialPardonForm form("Kanye");
+	PresidentialPardonForm form("Yolanthe");
+	
+	std::cout << form << std::endl;
+	try {
+		form.beSigned(b);
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << '\n';
+	}
+	try {
+		b.executeForm(form);
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << '\n';
+	}
+}
+
+int main(void)
+{
+	Bureaucrat momo("Momo", 150);
+
+	doShrubbery(momo);
+	doRobotomy(momo);
+	doPardon(momo);
+	return (0);
+}
+
+void	doCopying(Bureaucrat &b) {
+
+	PresidentialPardonForm form("Patty");
 	PresidentialPardonForm copy(form);
 	
 	try {
@@ -84,14 +117,4 @@ void	doPardon(Bureaucrat &b) {
 	form.execute(b);
 	copy.beSigned(b);
 	copy.execute(b);
-}
-
-int main(void)
-{
-	Bureaucrat momo("Momo", 5);
-
-	// doShrubbery(momo);
-	// doRobotomy(momo);
-	doPardon(momo);
-	return (0);
 }

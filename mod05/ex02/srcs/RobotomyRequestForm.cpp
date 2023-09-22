@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 17:30:16 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/12 15:00:25 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/18 17:23:48 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm(getN
 RobotomyRequestForm::~RobotomyRequestForm(void) {}
 
 std::string	RobotomyRequestForm::getName(void) const {
-	
+
 	return ("Robotomy Request Form");
 }
 
