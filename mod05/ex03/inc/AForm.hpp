@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:39:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/05 15:43:10 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 15:09:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <string>
 #include <iostream>
-#include "colours.hpp"
 
 class Bureaucrat;
 
@@ -25,7 +24,7 @@ class AForm {
 		AForm(void);
 		AForm(std::string name, unsigned int sign, unsigned int exec);
 		AForm(AForm const &original);
-		~AForm(void);
+		virtual ~AForm(void);
 
 		/** Exceptions */
 		class GradeTooHighException;

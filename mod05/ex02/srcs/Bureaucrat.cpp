@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:22:57 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/05 13:05:12 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:05:34 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ class	Bureaucrat::GradeTooLowException : public std::exception {
 				}
 };
 
-Bureaucrat::Bureaucrat(void) {
-	
-	std::cout << "Default bureaucrat constructed" << std::endl;
-}
+Bureaucrat::Bureaucrat(void) : _name("default") {}
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _grade(grade) {
 
@@ -39,17 +36,17 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name), _gra
 		throw GradeTooLowException();
 	if (grade < 1)
 		throw GradeTooHighException();
-	std::cout << "Bureaucrat "GRN << name << RST" constructed" << std::endl;
+	std::cout << "Bureaucrat " GRN << name << RST " constructed" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &original) : _name(original.getName()), _grade(original.getGrade()){
 
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << GRN "copy" RST " constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void){
 
-	std::cout << "Bureaucrat "PRETTY_RED << _name << RST" destroyed" << std::endl;
+	std::cout << "Bureaucrat " PRETTY_RED << _name << RST " destroyed" << std::endl;
 }
 	
 std::string 	Bureaucrat::getName(void) const {
@@ -82,11 +79,11 @@ void			Bureaucrat::decrementGrade(void) {
 }
 
 void			Bureaucrat::signForm(AForm const &form) {
-	std::cout << BLUE2"" << _name << RST" ";
-	if (this->_grade > form.getSignGrade())
-		std::cout << "couldn't sign "LILA << form.getName() << RST" because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
+	std::cout << BLUE2 << _name << RST;
+	if (_grade > form.getSignGrade())
+		std::cout << " couldn't sign " << form.getName() << " because their grade (" << _grade << ") doesn't meet the min requirement (" << form.getSignGrade() <<")" << std::endl;
 	else
-		std::cout << "signed "LILA << form.getName() << RST"" << std::endl;
+		std::cout << " signed " << form.getName() << std::endl;
 }
 
 void			Bureaucrat::executeForm(AForm const &form) const {
@@ -110,6 +107,6 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &rhs) {
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj) {
 	
-	out << ""BLUE2 << obj.getName() << RST", bureaucrat grade " << obj.getGrade();
+	out << BLUE2 << obj.getName() << RST ", bureaucrat grade " << obj.getGrade();
 	return (out);
 }

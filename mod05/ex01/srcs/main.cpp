@@ -6,11 +6,10 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 19:10:22 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/02 21:25:20 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:10:14 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
@@ -62,10 +61,6 @@ void	increment(void) {
 
 int main(void)
 {
-	// instantiateTooHigh();
-	// instantiateTooLow();
-	// decrement();
-	// increment();
 	Bureaucrat momo("Momo", 100);
 	Form a("Admission", 10, 10);
 	std::cout << a << std::endl;

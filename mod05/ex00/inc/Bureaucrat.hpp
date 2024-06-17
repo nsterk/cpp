@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/07 20:19:33 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/01 18:33:18 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 14:19:18 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ class Bureaucrat {
 		class	GradeTooHighException;
 		class	GradeTooLowException;
 	
-		std::string			getName(void) const;
-		unsigned int		getGrade(void) const;
-		void				setGrade(unsigned int grade);
-		void		incrementGrade(void); //! because 1 is highest and 150 is lowest, incrementing grade means SMALLER number
-		void		decrementGrade(void);
+		std::string		getName(void) const;
+		unsigned int	getGrade(void) const;
+		void			setGrade(unsigned int grade);
+		void			incrementGrade(void);
+		void			decrementGrade(void);
+		
+		Bureaucrat&		operator=(Bureaucrat const &rhs);
 
-		Bureaucrat&	operator=(Bureaucrat const &rhs);
-
-		private:
-			std::string	const	_name;
-			unsigned int		_grade;
+	private:
+		std::string	const	_name;
+		unsigned int		_grade;
 };
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat const &obj);

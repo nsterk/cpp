@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:48:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/05 15:44:06 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:01:20 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "colours.hpp"
 
 /** Exception handling */
 
@@ -47,20 +48,20 @@ AForm::AForm(std::string name, unsigned int sign, unsigned int exec) : _name(nam
 	if (_signGrade < 1) {
 		throw GradeTooHighException();
 	}
-	std::cout << ""GRN << _name << RST" constructed" << std::endl;
+	std::cout << GRN << _name << RST " constructed" << std::endl;
 }
 
 AForm::AForm(AForm const &original) : _name(original.getName()), _signGrade(original.getSignGrade()), _execGrade(original.getExecGrade()), _signed(false), _target(original.getTarget()) {
-	std::cout << ""L_GRN << _name << RST" copied" << std::endl;
+	std::cout << L_GRN << _name << RST " copied" << std::endl;
 }
 
 AForm::~AForm(void) {
-	std::cout << ""PRETTY_RED << _name << RST" destroyed" << std::endl;
+	std::cout << PRETTY_RED << _name << RST " destroyed" << std::endl;
 }
 
 /* Getters */
 
-std::string	AForm::getName(void) const {
+std::string		AForm::getName(void) const {
 	return (_name);
 }
 

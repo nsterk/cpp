@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:39:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 13:38:34 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 14:40:21 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <string>
 #include <iostream>
-#include "colours.hpp"
+
 class Bureaucrat;
 
 class Form {
@@ -44,6 +44,13 @@ class Form {
 		unsigned int const	_signGrade;
 		unsigned int const	_execGrade;
 		bool				_signed;
+
+		/** 
+		 * Adding an assignment operator overload in order to adhere to Orthodox
+		 * Canonical Form, but putting it in private so it can't be used. The 
+		 * attributes that would have to be copied are constants, so it's useless.
+		 */
+		Form&	operator=(Form const &rhs);
 };
 
 std::ostream&	operator<<(std::ostream& out, Form const &obj);

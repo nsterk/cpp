@@ -6,12 +6,13 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:48:35 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/04 13:44:15 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/13 15:09:03 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include "colours.hpp"
 
 /** Exception handling */
 
@@ -31,17 +32,16 @@ class	Form::GradeTooLowException : public std::exception {
 		
 /* Constructors & destructor */
 
-Form::Form(void) : _name("Default form"), _signGrade(150), _execGrade(150), _signed(false) {
-	std::cout << "Default form constructor called" << std::endl;
-}
+Form::Form(void) : _name("default"), _signGrade(150), _execGrade(150), _signed(false) {}
 
 Form::Form(std::string name, unsigned int sign, unsigned int exec) : _name(name), _signGrade(sign), _execGrade(exec), _signed(false) {
+
 	if (_signGrade > 150)
 		throw GradeTooLowException();
 	if (_signGrade < 1) {
 		throw GradeTooHighException();
 	}
-	std::cout << "Form "GRN << _name << RST" constructed" << std::endl;
+	std::cout << "Form " GRN << _name << RST " constructed" << std::endl;
 }
 
 Form::Form(const Form &original) : _name(original.getName()), _signGrade(original.getSignGrade()), _execGrade(original.getExecGrade()), _signed(false) {
@@ -49,7 +49,7 @@ Form::Form(const Form &original) : _name(original.getName()), _signGrade(origina
 }
 
 Form::~Form(void) {
-	std::cout << PRETTY_RED"Form"RST" destroyed" << std::endl;
+	std::cout << PRETTY_RED "Form" RST " destroyed" << std::endl;
 }
 
 /* Getters */
@@ -70,9 +70,10 @@ bool			Form::getSignature(void) const {
 	return (_signed);
 }
 
-/* Methods */
+/* Member methods */
 
 void	Form::beSigned(Bureaucrat &b) {
+
 	b.signForm(*this);
 	if (b.getGrade() > _signGrade)
 		throw GradeTooLowException();
@@ -86,9 +87,9 @@ std::ostream&	operator<<(std::ostream& out, Form const &obj) {
 
 	std::string status;
 	if (!obj.getSignature())
-		status = "Unsigned form \""LILA;
+		status = "Unsigned form \"" LILA;
 	else
-		status = "Signed form \""LILA;
-	out << status << obj.getName() << RST"\", sign grade: " << obj.getSignGrade() << ", execution grade: " << obj.getExecGrade();
+		status = "Signed form \"" LILA;
+	out << status << obj.getName() << RST "\", sign grade: " << obj.getSignGrade() << ", execution grade: " << obj.getExecGrade();
 	return (out);
 }

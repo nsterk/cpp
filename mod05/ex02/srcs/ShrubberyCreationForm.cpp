@@ -6,12 +6,17 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 14:15:17 by nsterk        #+#    #+#                 */
-/*   Updated: 2023/09/05 13:07:09 by nsterk        ########   odam.nl         */
+/*   Updated: 2023/09/12 15:01:41 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(getName(), 145, 137) {
+
+	setTarget("default");
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(getName(), 145, 137) {
 	
@@ -28,7 +33,7 @@ std::string	ShrubberyCreationForm::getName(void) const {
 void	ShrubberyCreationForm::action(void) const {
 
 	std::ofstream	ofs;
-	std::string	outfile = getTarget() + "_shrubbery";
+	std::string		outfile = getTarget() + "_shrubbery";
 
 	ofs.open(outfile.c_str(), std::ifstream::out);
 	if (ofs.is_open() == false)
