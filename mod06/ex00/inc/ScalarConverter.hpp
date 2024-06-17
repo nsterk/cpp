@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 17:39:59 by nsterk        #+#    #+#                 */
-/*   Updated: 2024/06/17 13:44:57 by nsterk        ########   odam.nl         */
+/*   Updated: 2024/06/17 14:18:12 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ class ScalarConverter {
 		ScalarConverter(void);
 		~ScalarConverter(void);
 		static char		toChar(std::string value);
-		void		toChar(int value);
-		void		toChar(float value);
-		void		toChar(double value);
+		static void		toChar(int value);
+		static void		toChar(float value);
+		static void		toChar(double value);
+		static int		toInt(std::string value);
 		static void		toInt(char value);
 		static void		toFloat(char value);
 
-		int			toInt(std::string value);
-		float		toFloat(std::string value);
-		double		toDouble(std::string value);
+		static float	toFloat(std::string value);
+		static double	toDouble(std::string value);
 		static void		toDouble(char value);
 };
 
