@@ -6,11 +6,11 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2023/12/08 15:18:07 by nsterk        ########   odam.nl          #
+#    Updated: 2024/06/17 13:32:48 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	ScalarConverter
+NAME		:=	convert
 
 INC_DIR		:=	inc
 SRCS_DIR	:=	srcs
