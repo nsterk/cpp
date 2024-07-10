@@ -6,7 +6,7 @@
 /*   By: nsterk <nsterk@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/08 13:15:08 by nsterk        #+#    #+#                 */
-/*   Updated: 2024/06/25 13:33:39 by nsterk        ########   odam.nl         */
+/*   Updated: 2024/06/28 14:48:34 by nsterk        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ bool		ScalarConverter::isInt(std::string value) {
 		if (!isdigit(value[i]))
 			return false;
 	}
-	// try {
-	// 	std::stoi(value);
-	// } catch (std::exception &e) {
-	// 	// std::cout << e.what() << std::endl;
-	// 	return false;
-	// }
 	std::cout << CYAN << "int" << RST << std::endl;
 	return true;
 }
@@ -45,8 +39,6 @@ bool	ScalarConverter::isFloat(std::string value) {
 	size_t fchars = 0;
 	size_t length = value.length();
 
-	// if (length < 4)
-	// 	return false;
 	if (value[length - 1] != 'f')
 		return false;
 	if (value[0] != '+' && value[0] != '-' && !isdigit(value[0]))
@@ -99,12 +91,13 @@ bool	ScalarConverter::isDouble(std::string value) {
 
 void	ScalarConverter::convert(std::string value) {
 
+	isPseudo(value);
 	if (value.length() == 1 && !isdigit(value[0])) {
 		std::cout << CYAN << "char" << RST << std::endl;
 		char c = toChar(value);
-		toInt(c);
-		toFloat(c);
-		toDouble(c);
+		std::cout << "int: " << static_cast<int>(c) << std::endl;
+		printFloat(static_cast<float>(c), 1);
+		printDouble(static_cast<double>(c), 1);
 	}
 	else if (isInt(value)) {
 		int i = toInt(value);
@@ -117,10 +110,7 @@ void	ScalarConverter::convert(std::string value) {
 		float f = toFloat(value);
 		toChar(f);
 		toInt(f);
-		std::cout.setf(std::ios::fixed);
-		std::cout.precision(1);
-		std::cout << "float: " << f << "f" << std::endl;
-		std::cout.unsetf(std::ios::fixed);
+		printFloat(f, getPrecision(std::to_string(f)));
 		toDouble(f);
 	}
 	else if (isDouble(value)) {
@@ -128,13 +118,8 @@ void	ScalarConverter::convert(std::string value) {
 		toChar(d);
 		toInt(d);
 		toFloat(d);
-		std::cout.setf(std::ios::fixed);
-		std::cout.precision(1);
-		std::cout << "double: " << d << std::endl;
-		std::cout.unsetf(std::ios::fixed);
-
+		printDouble(d, getPrecision(std::to_string(d)));
 	}
-	
 }
 
 /** ORIGINAL VALUE IS CHAR */
@@ -145,144 +130,106 @@ char	ScalarConverter::toChar(std::string value) {
 	return c;
 }
 
-void	ScalarConverter::toInt(char value) {
-	int converted = static_cast<int>(value);
-	std::cout << "int: " << converted << std::endl;
-
-}
-
-void	ScalarConverter::toFloat(char value) {
-	float converted = static_cast<float>(value);
-	std::cout.setf(std::ios::fixed);
-	std::cout.precision(1);
-	std::cout << "float: " << converted << std::endl;
-	std::cout.unsetf(std::ios::fixed);
-}
-
-void	ScalarConverter::toDouble(char value) {
-	double converted = static_cast<double>(value);
-	std::cout.setf(std::ios::fixed);
-	std::cout.precision(1);
-	std::cout << "double: " << converted << std::endl;
-	std::cout.unsetf(std::ios::fixed);
-}
-
 /** ORIGINAL VALUE IS INTEGER */
 
 int		ScalarConverter::toInt(std::string value) {
+	
 	try {
-		int converted = std::stoi(value);
-		return (converted);
+		return (std::stoi(value));
 	} catch (std::exception &e) {
 		std::cout << "String represents out of bounds integer, initial conversion is impossible" << std::endl;
 		exit(0);
 	}
-	// return (converted);
 }
 
 void	ScalarConverter::toChar(int value) {
+	
 	char c = static_cast<char>(value);
 	printChar(c);
 }
 
 void	ScalarConverter::toFloat(int value) {
 
-	float maxValue = std::numeric_limits<float>::max();
-	std::cout.setf(std::ios::fixed);
-	std::cout.precision(1);
-	if (value > maxValue)
-		std::cout << "float: out of range" << std::endl;
-	try {
-		float converted = static_cast<float>(value);
-		std::cout << "float: " << converted << "f" << std::endl;
-
-	} catch (std::exception &e) {
-		std::cout << "float: out of range" << std::endl;
-	}
-	std::cout.unsetf(std::ios::fixed);
-	//blabla error handling overflow yadayada
+	float converted = static_cast<float>(value);
+	printFloat(converted, getPrecision(std::to_string(converted)));
 }
 
 void		ScalarConverter::toDouble(int value) {
-	double daMax = std::numeric_limits<double>::max();
-	if (value > daMax) {
-		std::cout << "double: overflow" << std::endl;
-		return ;
-	}
-	std::cout.setf(std::ios::fixed);
-	std::cout.precision(1);
+	
 	double converted = static_cast<double>(value);
-	std::cout << "double: " << converted << std::endl;
-	std::cout.unsetf(std::ios::fixed);
+	printDouble(converted, getPrecision(std::to_string(converted)));
 }
 
 /** ORIGINAL VALUE IS FLOAT */
 
 float	ScalarConverter::toFloat(std::string value) {
 	
-	float converted = std::stof(value);
+	std::string blah = value;
+	blah.pop_back();
+	float converted = std::stof(blah);
 	return (converted);
 }
 
 void	ScalarConverter::toChar(float value) {
 
-	if (floor(value) < value) {
+	if (value < 0)
+		std::cout << "char: underflow" << std::endl;
+	else if (value > 127)
+		std::cout << "char: overflow" << std::endl;
+	else if (floor(value) < value)
 		std::cout << "char: impossible without transforming original value" << std::endl;
-		return ;
-	}
-	char converted = static_cast<char>(value);
-	printChar(converted);
-
+	else
+		printChar(static_cast<char>(value));
 }
 
 void	ScalarConverter::toInt(float value) {
 	
-	int converted = static_cast<int>(value);
-	std::cout << "int: " << converted << std::endl;
+	if (value > INT_MAX || value < INT_MIN)
+		std::cout << "int: out of range" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
 }
 
 void	ScalarConverter::toDouble(float value) {
-	double converted = static_cast<double>(value);
-	std::cout.setf(std::ios::fixed);
-	std::cout.precision(1);
-	std::cout << "double: " << converted << std::endl;
-	std::cout.unsetf(std::ios::fixed);
 
+	double converted = static_cast<double>(value);
+	printDouble(converted, getPrecision(std::to_string(converted)));
 }
 
 /** ORIGINAL VALUE IS DOUBLE */
 
 double		ScalarConverter::toDouble(std::string value) {
-	double converted = std::stod(value);
-	return (converted);
+
+	return (std::stod(value));
 }
 
 void		ScalarConverter::toChar(double value) {
 	
-	if (floor(value) < value) {
+	if (floor(value) < value)
 		std::cout << "char: impossible to convert without transforming original value" << std::endl;
-		return ;
-	}
-	
-	char c = static_cast<char>(value);
-	printChar(c);
+	else
+		printChar(static_cast<char>(value));
 }
 
 void	ScalarConverter::toInt(double value) {
-	int converted = static_cast<int>(value);
-	std::cout << "int: " << converted << std::endl;
+
+	if (value > INT_MAX || value < INT_MIN)
+		std::cout << "int: out of range" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
 }
 
 void	ScalarConverter::toFloat(double value) {
-	float converted = static_cast<float>(value);
-	printFloat(converted);
-	// std::cout.setf(std::ios::fixed);
-	// std::cout.precision(1);
-	// std::cout << "float: " << converted << std::endl;
-	// std::cout.unsetf(std::ios::fixed);
+	try {
+		float converted = static_cast<float>(value);
+		printFloat(converted, getPrecision(std::to_string(converted)));
+	} catch (std::exception &e) {
+		std::cout << "float: out of range" << std::endl;
+	}
 }
 
 void	ScalarConverter::printChar(char c) {
+
 	if (!isascii(c))
 		std::cout << "char: impossible, value is not within ASCII limits" << std::endl;
 	else if (!isprint(c))
@@ -291,11 +238,86 @@ void	ScalarConverter::printChar(char c) {
 		std::cout << "char: \'" << c << "\'" << std::endl;
 }
 
-void	ScalarConverter::printFloat(float f) {
+void	ScalarConverter::printFloat(float f, int precision) {
+
 	std::cout.setf(std::ios::fixed);
-	std::cout.precision(1);
+	std::cout.precision(precision);
 	std::cout << "float: " << f << "f" << std::endl;
 	std::cout.unsetf(std::ios::fixed);
+}
+
+void	ScalarConverter::printDouble(double d, int precision) {
+
+	std::cout.setf(std::ios::fixed);
+	std::cout.precision(precision);
+	std::cout << "double: " << d << std::endl;
+	std::cout.unsetf(std::ios::fixed);
+}
+
+int		ScalarConverter::getPrecision(std::string convertedValue) {
+
+	size_t length = convertedValue.length();
+	size_t start = convertedValue.find_first_of('.') + 1;
+	size_t lastNonZero = 0;
+
+	for (size_t i = start; i < length; i++) {
+		if (convertedValue[i] != '0' && isdigit(convertedValue[i]))
+			lastNonZero = i;
+	}
+	return (!lastNonZero ? 1 : lastNonZero - start + 1);
+}
+
+void	ScalarConverter::isPseudo(std::string value) {
+	//float pseudo literals
+	if (!value.compare("-inff")) {
+		std::cout << CYAN << "-inff float pseudo literal"<< RST << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+		exit(0);
+	}
+	else if (!value.compare("+inff")) {
+		std::cout << CYAN << "+inff float pseudo literal"<< RST << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+		exit(0);
+	}
+	else if (!value.compare("nanf")) {
+		std::cout << CYAN << "nanf float pseudo literal"<< RST << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+		exit(0);
+	}
+	//double pseudo literals
+	else if (!value.compare("-inf")) {
+		std::cout << CYAN << "-inf double pseudo literal"<< RST << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+		exit(0);
+	}
+	else if (!value.compare("+inf")) {
+		std::cout << CYAN << "+inf double pseudo literal"<< RST << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+		exit(0);
+	}
+	else if (!value.compare("nan")) {
+		std::cout << CYAN << "nan double pseudo literal"<< RST << std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+		exit(0);
+	}
 }
 /*
 uitzonderingen:
