@@ -6,22 +6,22 @@
 #    By: nsterk <nsterk@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/13 14:42:55 by nsterk        #+#    #+#                  #
-#    Updated: 2024/07/03 19:38:15 by nsterk        ########   odam.nl          #
+#    Updated: 2024/07/02 14:16:32 by nsterk        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	array
+NAME		:=	Span
 
 INC_DIR		:=	inc
 SRCS_DIR	:=	srcs
 OBJ_DIR		:=	objs
 VPATH		:=	$(subst $(space),:,$(shell find srcs -type d))
 
-SRCS		=	main.cpp
+SRCS		=	main.cpp Span.cpp
 OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC			:=	c++
-FLAGS		:=	-Wall -Wextra -Werror -g -fsanitize=address -I$(INC_DIR)
+FLAGS		:=	-Wall -Wextra -Werror -g -I$(INC_DIR) -std=c++11
 
 all:		$(NAME)
 

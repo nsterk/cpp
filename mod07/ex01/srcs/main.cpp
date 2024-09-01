@@ -4,11 +4,11 @@
 #include "iter.hpp"
 
   template<typename T>
-void	doPrint(T arg) {
+void	doPrint(T &arg) {
 	std::cout << arg << std::endl;
 }
 
-void	toUpper(char c) {
+void	toUpper(char &c) {
 	if (c >= 'a' && c <= 'z')
 		std::cout << "input \"" << c << "\" is a lowercase letter, that's AMAZING" << std::endl;
 	else if (c >= 'A' && c <= 'Z')
@@ -23,9 +23,9 @@ void	toUpper(char c) {
 int	main(void) {
 	char momo[5] = "momo";
 	double numbers[5] = {1, 2, 3, 4, 5};
-	::iter(momo, 4, &doPrint);
-	::iter(numbers, 5, &doPrint);
+	iter(momo, 4, doPrint<char>);
+	iter(numbers, 5, doPrint<double>);
 	char word[35] = "`§q2ad=AM#^";
-	::iter(word, strlen(word), &toUpper);
+	iter(word, strlen(word), toUpper);
 
 }
