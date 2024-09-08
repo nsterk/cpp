@@ -8,7 +8,12 @@ int main(int argc, char **argv) {
 		std::cout << "Exactly one argument expected" << std::endl;
 	}
 
-	RPN rpn(argv[1]);
+	try {
+
+		RPN rpn(argv[1]);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 
 	return (0);
 }

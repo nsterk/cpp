@@ -6,25 +6,17 @@
 #include <unordered_map>
 #include <functional>
 
-/*
-
-std::unordered_map<char, std::function<int(int num1, int num2)>>
-
-std::function<int&()> G([]() -> int& { static int i{0x2A}; return i; });
-
-*/
-
-
-// # define locationMap std::map<std::string, void(locationParser::*)(std::vector<std::string> &args)>
-
 class RPN : public std::stack<int> {
 	public:
 		RPN(std::string input);
 		~RPN(void);
+
+		class RPNException;
 	
 	private:
 		static std::unordered_map<char, std::function<int(int num1, int num2)>> _operators;
-
+		void	_validateInput(const std::string &input);
+		void	_run(const std::string &input);
 };
 
 #endif
