@@ -25,10 +25,6 @@ std::unordered_map<char, std::function<int(int, int)>> RPN::_operators = {
 RPN::RPN(std::string input) {
 	_validateInput(input);
 	_run(input);
-	// while ((*this).size()) {
-	// 	std::cout << (*this).top() << std::endl;
-	// 	(*this).pop();
-	// }
 }
 
 void	RPN::_validateInput(const std::string &input) {
