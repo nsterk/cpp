@@ -30,7 +30,6 @@ Array<T>::Array(Array<T> const &value) {
 	_data = new T[_size];
 	for (unsigned int i = 0; i < _size; i++)
 		_data[i] = value[i];
-	// std::cout << value.size() << std::endl;
 }
 
 template<typename T>
