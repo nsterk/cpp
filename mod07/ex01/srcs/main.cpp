@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <vector>
 #include "iter.hpp"
 
@@ -12,7 +12,7 @@ void	toUpper(char &c) {
 	if (c >= 'a' && c <= 'z')
 		std::cout << "input \"" << c << "\" is a lowercase letter, that's AMAZING" << std::endl;
 	else if (c >= 'A' && c <= 'Z')
-		std::cout << "input \"" << c << "\" is an upercase letter, that's AMAZING" << std::endl;
+		std::cout << "input \"" << c << "\" is an uppercase letter, that's AMAZING" << std::endl;
 	else if (isprint(c))
 		std::cout << "input \"" << c << "\" is not a letter but at least it's in the ascii table" << std::endl;
 	else

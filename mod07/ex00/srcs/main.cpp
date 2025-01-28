@@ -17,7 +17,7 @@ int	main(void) {
 
 	std::string c = "chaine1";
 	std::string d = "chaine2";
-	std::cout << CYAN << "\n		c " << c << MAGENTA << "	d " << d << RST << std::endl;
+	std::cout << "\n---std::string " << CYAN << "c " << c << MAGENTA << "	d " << d << RST << "---" << std::endl;
 
 	std::cout << "min(c, d)	" << whatever::min(c, d) << std::endl;
 	std::cout << "max(c, d)	" << whatever::max(c, d) << std::endl;
