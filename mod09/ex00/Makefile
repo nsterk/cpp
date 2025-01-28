@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	BitcoinExchange
+NAME		:=	btc
 
 INC_DIR		:=	inc
 SRCS_DIR	:=	srcs

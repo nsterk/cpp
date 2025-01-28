@@ -30,10 +30,15 @@ PmergeMe<T>::PmergeMe(std::string input) :_oddOneOut(-1) {
 
 	_fillInput(input);
 	_splitInput();
-	_sortFirst();
-	_insertSecond();
-	if (_oddOneOut != -1)
-		_sorted.insert(std::upper_bound(_sorted.begin(), _sorted.end(), _oddOneOut), _oddOneOut);
+	// als lijst al gesorteerd is hoeft het niet gesorteerd te worden
+	if (std::is_sorted(_input.begin(), _input.end()))
+		_sorted = _input;
+	else {
+		_sortFirst();
+		_insertSecond();
+		if (_oddOneOut != -1)
+			_sorted.insert(std::upper_bound(_sorted.begin(), _sorted.end(), _oddOneOut), _oddOneOut);
+	}
 	end = std::chrono::high_resolution_clock::now();
 	elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end - begin);
 };

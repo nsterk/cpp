@@ -30,7 +30,7 @@ void	BitcoinExchange::_readInput(std::string path) {
 
 	std::ifstream	ifs(path);
 	if (!ifs.is_open()) {
-		std::cerr << "File does not exist: " << path << std::endl;
+		std::cerr << "Unable to open file: " << path << std::endl;
 		exit(0);
 	};
 
@@ -48,13 +48,17 @@ void	BitcoinExchange::_processLine(std::string arg) {
 	std::istringstream line(arg);
 	std::string	word;
 	std::string key;
-	float amount;
+	float	amount;
+	time_t	timeStamp;
 
 	line >> word;
 
 	if (_validateDate(word))
 	 	return ;
 	key = word;
+	timeStamp = _getTimestamp(key);
+	if (_database.lower_bound(timeStamp) == _database.begin())
+		_errorMsg("Error: date ")
 
 	line >> word;
 	if (word != "|") {
